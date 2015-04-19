@@ -1,0 +1,7 @@
+%h1 Halo
+-@contests.each do |contest|
+  =contest.title
+  =image_tag contest.image
+  =contest.description
+  %br/
+=link_to 'new', new_contest_path
