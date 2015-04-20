@@ -1,7 +1,14 @@
 %h1 Halo
--@contests.each do |contest|
-  =contest.title
-  =image_tag contest.image
-  =contest.description
-  %br/
-=link_to 'new', new_contest_path
+.panel.panel-default
+  .panel.panel-body
+    =link_to 'new', new_contest_path
+    -@contests.each do |contest|
+      .contest
+        .contest-title
+          =contest.title
+        .contest-image
+          =image_tag contest.image, size:"300"
+        .contest-description
+          =contest.description
+        =link_to "Take a part", contest
+

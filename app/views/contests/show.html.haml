@@ -1,0 +1,10 @@
+%h1 Contest
+.panel.panel-default
+   .panel.panel-body
+      %p=image_tag @contest.image
+      %p=@contest.title
+      =@contest.description
+
+songs:
+
+=link_to "back", root_path
