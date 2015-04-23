@@ -1,7 +1,10 @@
 class ContestsController < ApplicationController
   before_action :find_contest, only: [:show,:update,:edit,:destroy]
+
+
   def index
     @contests = Contest.all
+
   end
 
   def new
@@ -42,5 +45,6 @@ class ContestsController < ApplicationController
     def find_contest
       @contest=Contest.find(params[:id])
     end
-  end
+
+end
 

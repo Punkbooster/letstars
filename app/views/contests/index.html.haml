@@ -1,11 +1,6 @@
 %h1 Halo
 .panel.panel-default
   .panel.panel-body
-    =link_to 'new', new_contest_path
-    =link_to 'Log in', new_user_session_path
-    =link_to 'Registe', new_user_registration_path
-    =link_to 'log out', destroy_user_session_path, method: :delete
-    =link_to 'Profile', @profile
     -@contests.each do |contest|
       .contest
         .contest-title
