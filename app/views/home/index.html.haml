@@ -1,0 +1,16 @@
+
+%h1 hallo
+
+.panel.panel-default
+  .panel.panel-body
+    =link_to 'View all contests', contests_path
+    -@contests.each do |contest|
+      .contest
+        .contest-title
+          =contest.title
+        .contest-image
+          =image_tag contest.image, size:"300"
+        .contest-description
+          =contest.description
+        =link_to "Take a part", contest
+

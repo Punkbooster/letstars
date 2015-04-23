@@ -14,6 +14,7 @@
         =link_to 'My profile', profile_path(current_user.profile)
       -else
         =link_to 'New Profile', new_profile_path
+      =link_to 'Home', root_path
       =link_to 'new', new_contest_path
       =link_to 'log out', destroy_user_session_path, method: :delete
 
