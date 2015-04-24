@@ -33,7 +33,8 @@ class ContestsController < ApplicationController
   end
 
   def destroy
-
+    @contest.destroy
+    redirect_to root_path
   end
 
   private

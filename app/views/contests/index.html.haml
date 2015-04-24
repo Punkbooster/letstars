@@ -9,5 +9,6 @@
           =image_tag contest.image, size:"300"
         .contest-description
           =contest.description
-        =link_to "Take a part", contest
+        /=link_to 'Take a part', contest, class:'btn btn-info'
+        =button_to "Take a part", contest, method: :get , class: 'btn btn-info'
 

@@ -1,10 +1,9 @@
-
-%h1 hallo
-
 .panel.panel-default
   .panel.panel-body
-    =link_to 'View all contests', contests_path
+    .text-center
+      =link_to 'View all contests', contests_path, class:'btn btn-default '
     -@contests.each do |contest|
+      -@modalName = '#myModal' + contest.id.to_s
       .contest
         .contest-title
           =contest.title
@@ -12,5 +11,23 @@
           =image_tag contest.image, size:"300"
         .contest-description
           =contest.description
-        =link_to "Take a part", contest
+        %button.btn.btn-primary.btn-lg{"data-target" => @modalName, "data-toggle" => "modal", :type => "button"}
+          Launch
 
+-@contests.each do |contest|
+  -@modalName='myModal' + contest.id.to_s
+  .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => @modalName, :role => "dialog", :tabindex => "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          .contest
+            .contest-title
+              =contest.title
+        .modal-body
+          .contest-image
+            =image_tag contest.image, size:"300"
+          .contest-description
+            =contest.description
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          =link_to "Take a part", contest, class: 'btn btn-info'
