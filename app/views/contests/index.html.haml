@@ -1,14 +1,17 @@
-%h1 Halo
-.panel.panel-default
-  .panel.panel-body
-    -@contests.each do |contest|
-      .contest
-        .contest-title
-          =contest.title
-        .contest-image
-          =image_tag contest.image, size:"300"
-        .contest-description
-          =contest.description
-        /=link_to 'Take a part', contest, class:'btn btn-info'
-        =button_to "Take a part", contest, method: :get , class: 'btn btn-info'
+.header
+.wrap
+  .text-center
+    %h3 All contests
+  %hr
+.wrap
+  -@contests.each do |contest|
+    .contest
+      .contest-title
+        =contest.title
+      .contest-image
+        =image_tag contest.image, size:"300"
+      .contest-description
+        =contest.description
+      /=link_to 'Take a part', contest, class:'btn btn-info'
+      =button_to "Take a part", contest, method: :get , class: 'btn btn-info'
 

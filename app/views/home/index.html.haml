@@ -1,7 +1,15 @@
-.panel.panel-default
-  .panel.panel-body
+.header
+  .logo
     .text-center
-      =link_to 'View all contests', contests_path, class:'btn btn-default '
+      %b
+        %h1 Letstars
+    %i
+      %span.logo-text show your talent
+.text-center
+  %h3 Latest contests:
+.wrap
+  %hr
+  .text-center
     -@contests.each do |contest|
       -@modalName = '#myModal' + contest.id.to_s
       .contest
@@ -13,7 +21,8 @@
           =contest.description
         %button.btn.btn-primary.btn-lg{"data-target" => @modalName, "data-toggle" => "modal", :type => "button"}
           Launch
-
+  .text-center
+    %p=link_to 'View all contests', contests_path, class:'btn btn-default '
 -@contests.each do |contest|
   -@modalName='myModal' + contest.id.to_s
   .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => @modalName, :role => "dialog", :tabindex => "-1"}
@@ -25,7 +34,8 @@
               =contest.title
         .modal-body
           .contest-image
-            =image_tag contest.image, size:"300"
+            .text-center
+              =image_tag contest.image, size:"300"
           .contest-description
             =contest.description
         .modal-footer

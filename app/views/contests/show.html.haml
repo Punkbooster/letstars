@@ -1,9 +1,9 @@
-%h1 Contest
 .panel.panel-default
   .panel.panel-body
-    %p=@contest.title
-    %p=image_tag @contest.image
-    =@contest.description
+    .text-center
+      %h2=@contest.title
+      %p=image_tag @contest.image
+      =@contest.description
 
 songs:
 
