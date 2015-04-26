@@ -2,7 +2,6 @@ class ContestsController < ApplicationController
   before_action :find_contest, only: [:show,:update,:edit,:destroy]
   def index
     @contests = Contest.all
-    @posts = Post.all.order('created_at DESC')
   end
 
   def new
