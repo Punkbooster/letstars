@@ -1,0 +1,17 @@
+#post_content
+  %h1.title
+    = @post.title_blog
+  %p.date
+    Submitted #{time_ago_in_words(@post.created_at)} ago
+    | #{link_to 'Edit', edit_post_path(@post)}
+    | #{link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'}}
+  %p.body
+    = @post.content_blog
+
+  %h2
+    = @post.comments.count
+    Comments
+  =render @post.comments
+
+  %h3 Reply to thread
+  = render "comments/form"
