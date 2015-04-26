@@ -1,0 +1,11 @@
+.header
+  .header-photo
+    .text-center
+      %p=image_tag @profile.photo, size:'300'
+      %p=@profile.name
+      %p=@profile.band
+      %i
+        %p=@profile.role
+.wrap
+  %p=@profile.about
+  =link_to "Back", root_path

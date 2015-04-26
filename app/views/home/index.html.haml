@@ -1,0 +1,49 @@
+.header
+  .logo
+    .text-center
+      %b
+        %h1 Letstars
+    %i
+      %span.logo-text show your talent
+.wrap
+  .text-center
+    .topic
+      Latest contests:
+  %hr
+  .text-center
+    -@contests.each do |contest|
+      -@modalName = '#myModal' + contest.id.to_s
+      .contest
+        .contest-title
+          .topic
+            =contest.title
+        %hr
+        .contest-image
+          =image_tag contest.image, size:"300"
+        %button.btn.btn-default.btn-lg.btn-block{"data-target" => @modalName, "data-toggle" => "modal", :type => "button"}
+          More
+  .text-center
+    .topic
+      %p=link_to 'View all contests', contests_path, class:'btn btn-default'
+-@contests.each do |contest|
+  -@modalName='myModal' + contest.id.to_s
+  .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => @modalName, :role => "dialog", :tabindex => "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          .contest
+            .contest-title
+              .text-center
+                %h3=contest.title
+        .modal-body
+          .contest-image
+            .text-center
+              =image_tag contest.image, size:"300"
+          .contest-description
+            .text-center{:style=>'text-align:justify;'}
+              =contest.description
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          =link_to "Take a part", contest, class: 'btn btn-info'
+
+.footer

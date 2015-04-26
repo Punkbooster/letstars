@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150426074615) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+ActiveRecord::Schema.define(version: 20150421095531) do
+
   create_table "contests", force: :cascade do |t|
     t.string   "image"
     t.string   "title"
@@ -35,12 +37,28 @@ ActiveRecord::Schema.define(version: 20150426074615) do
 
   add_index "contests", ["track_id"], name: "index_contests_on_track_id"
 
+
   create_table "posts", force: :cascade do |t|
     t.string   "title_blog"
     t.text     "content_blog"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "surname"
+    t.string   "band"
+    t.string   "role"
+    t.text     "about"
+    t.string   "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

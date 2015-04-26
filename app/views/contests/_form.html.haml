@@ -1,6 +1,7 @@
-=simple_form_for(@contest) do |f|
-  =f.input :title
-  =f.input :image
-  =f.input :description
+.wrap{:style=>'margin-top:100px;'}
+  =simple_form_for(@contest) do |f|
+    =f.input :title
+    =f.input :image
+    =f.input :description
 
-  =f.button :submit
+    =f.button :submit
