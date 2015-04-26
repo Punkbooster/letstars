@@ -25,15 +25,20 @@
   .text-center
     .topic
       %p=link_to 'View all contests', contests_path, class:'btn btn-default'
-
-  #posts
-  - @posts.each do |post|
-    .post 
-      %h2.title
-        = link_to post.title_blog, post
-      %p.date 
-        Published at:
-        =time_ago_in_words(post.created_at)
+%hr
+  .wrap
+    #posts
+    - @posts.each do |post|
+      .well.well-sm
+        .post
+          %h3.title
+            = link_to post.title_blog, post
+          .post-annotation
+            = post.content_blog
+          %hr
+          %p.post-date
+            Published at:
+            =time_ago_in_words(post.created_at)
 
 
 -@contests.each do |contest|
