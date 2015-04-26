@@ -1,14 +1,14 @@
-.panel.panel-default
-  .panel.panel-body
-    .text-center
-      %h2=@contest.title
-      %p=image_tag @contest.image
-      =@contest.description
+.wrap{:style=>'margin-top:60px;'}
+  .text-center
+    %h2=@contest.title
+    %p=image_tag @contest.image
+    =@contest.description
+  %hr
+  .contest-songs
+    songs:
 
-songs:
+  =link_to "back", root_path
 
-=link_to "back", root_path
-
-=link_to "Delete", contest_path, method: :delete
+  =link_to "Delete", contest_path, method: :delete
 
 

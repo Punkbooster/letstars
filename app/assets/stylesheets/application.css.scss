@@ -15,6 +15,8 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import "http://webfonts.ru/import/aliquam.css";
+
 *{
   margin:0;
   padding:0;
@@ -72,7 +74,37 @@
   width:80%;
   .contest {
     float: left;
-    margin: 20px;
+    margin: 30px;
     height: 500px;
+    overflow: hidden;
+    width: 300px;
+    .contest-title{
+      height:60px;
+      text-align: center;
+      .topic {
+        text-align: center;
+        margin-bottom: 0;
+      }
+    }
+    hr{
+      margin-top:0;
+    }
   }
+  .text-center{
+    .topic{
+      margin:1em;
+      text-align: center;
+      clear:both;
+      font-family: 'Aliquam';
+      font-size: 20px;
+      .btn{
+        font-size: 20px;
+      }
+    }
+  }
+}
+.footer{
+  height:400px;
+  width:100%;
+  background-color: cadetblue;
 }
