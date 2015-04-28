@@ -1,17 +1,17 @@
 .header
-
-.wrap
-  .text-center
-    .topic
-      All contests
-  %hr
-  .text-center
-    -@contests.each do |contest|
-      .contest
-        .contest-title
-          .topic
-            =contest.title
-        .contest-image
-          %hr
-          =image_tag contest.image, size:"300"
-        =button_to "Take a part", contest, method: :get , class: 'btn btn-default btn-lg btn-block'
+.contests
+  .wrap
+    .text-center
+      .topic
+        All contests
+    %hr
+    .text-center
+      -@contests.each do |contest|
+        .contest
+          .contest-title
+            .topic
+              =contest.title
+          .contest-image
+            %hr
+            =image_tag contest.image, size:"300"
+          =button_to "Take a part", contest, method: :get , class: 'btn btn-default btn-lg btn-block'

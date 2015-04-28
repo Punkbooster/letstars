@@ -20,6 +20,9 @@
   margin:0;
   padding:0;
 }
+html,body{
+  height: 100%;
+}
 .navbar{
   top:0;
   z-index: 999;
@@ -70,13 +73,13 @@
 }
 .wrap{
   margin:auto;
-  margin-top: 60px;
+  margin-top:60px;
   width:80%;
+  height: auto;
   .contest {
     float: left;
     margin: 30px;
     height: 500px;
-    overflow: hidden;
     width: 300px;
     .btn{
       font-family: 'Roboto', sans-serif;
@@ -109,10 +112,51 @@
     }
   }
 }
+.contests{
+  clear: both;
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+  .contest{
+    float:left;
+    width:300px;
+    margin:30px;
+  }
+}
+.page-buffer{
+  margin-bottom: 1%;
+  height:50px;
+}
 .footer{
+  margin-top: 0;
   height:400px;
   width:100%;
   background-color: cadetblue;
+  .site-info{
+    float: none;
+    margin:auto;
+    width:70%;
+    padding-top: 4%;
+    .footer-sitemap{
+      display: inline-block;
+      .col{
+        float:left;
+        width:33.3%;
+        padding-bottom: 2%;
+      .sitemap-heading{
+
+        }
+        .sitemap-list li{
+          list-style: outside none none;
+          line-height: 2;
+        }
+
+      }
+    }
+    .footer-company-description{
+      border-top: 1px solid #ffffff;
+    }
+  }
 }
 .post {
   .post-annotation {
