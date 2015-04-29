@@ -16,7 +16,8 @@
         -else
           =link_to 'New Profile', new_profile_path
         =link_to 'Home', root_path
-        =link_to 'new', new_contest_path
+        =link_to 'New contest', new_contest_path
+        =link_to 'New post', new_post_path
         =link_to 'log out', destroy_user_session_path, method: :delete
 
     =yield
@@ -58,7 +59,7 @@
                 =link_to((image_tag 'facebook.svg'),'http://www.wsd.com')
             %li
               .social
-                =link_to((image_tag 'twitter.svg'),'http://www.wsd.com')
+                =link_to((image_tag 'twitter.svg'),'https://twitter.com/letstarscom')
             %li
               .social
-                =link_to((image_tag 'youtube.svg'),'http://www.wsd.com')
+                =link_to((image_tag 'youtube.svg'),'https://www.youtube.com/channel/UC8wT5JRkW7FGywTfkgYemIg')
