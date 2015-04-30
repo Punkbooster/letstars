@@ -16,6 +16,8 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'carrierwave', '~> 0.10.0'
 gem 'haml'
+gem 'paperclip'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

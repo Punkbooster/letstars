@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_one :profile
+  has_many :musics
 end
