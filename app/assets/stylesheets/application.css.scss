@@ -15,11 +15,13 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
-@import "http://webfonts.ru/import/aliquam.css";
-
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300);
 *{
   margin:0;
   padding:0;
+}
+html,body{
+  height: 100%;
 }
 .navbar{
   top:0;
@@ -71,13 +73,18 @@
 }
 .wrap{
   margin:auto;
+  margin-top:60px;
   width:80%;
+  height: auto;
   .contest {
     float: left;
     margin: 30px;
     height: 500px;
-    overflow: hidden;
     width: 300px;
+    .btn{
+      font-family: 'Roboto', sans-serif;
+      font-weight: 100;
+    }
     .contest-title{
       height:60px;
       text-align: center;
@@ -95,16 +102,96 @@
       margin:1em;
       text-align: center;
       clear:both;
-      font-family: 'Aliquam';
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
       font-size: 20px;
       .btn{
+        font-weight: 100;
         font-size: 20px;
       }
     }
   }
 }
+.contests{
+  clear: both;
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+  .contest{
+    float:left;
+    width:300px;
+    margin:30px;
+  }
+}
+.page-buffer{
+  margin-bottom: 1%;
+  height:50px;
+}
 .footer{
-  height:400px;
+  margin-top: 0;
+  color:#ffffff;
+  height:440px;
   width:100%;
   background-color: cadetblue;
+  .site-info{
+    float: none;
+    margin:auto;
+    width:70%;
+    padding-top: 4%;
+    .footer-sitemap{
+      display: inline-block;
+      width:100%;
+      a{
+        color: #595A5D;
+      }
+      .col{
+        float:left;
+        width:33.3%;
+        padding-bottom: 2%;
+      .sitemap-heading{
+
+        }
+        .sitemap-list li{
+          list-style: outside none none;
+          line-height: 2;
+        }
+
+      }
+    }
+    .footer-company-description{
+      text-align: center;
+      border-top: 1px solid #ffffff;
+      padding: 2em;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .footer-subcontent{
+      border-top: 1px solid #ffffff;
+      padding-top: 1em;
+      text-align: center;
+      ul{
+        list-style: outside none none;
+        float: right;
+        li{
+          display: inline-block;
+          .social{
+            width:50px;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+.post {
+  .post-annotation {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 60px;
+  }
+  .post-date{
+    text-align: right;
+  }
 }

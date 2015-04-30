@@ -16,7 +16,50 @@
         -else
           =link_to 'New Profile', new_profile_path
         =link_to 'Home', root_path
-        =link_to 'new', new_contest_path
+        =link_to 'New contest', new_contest_path
+        =link_to 'New post', new_post_path
         =link_to 'log out', destroy_user_session_path, method: :delete
 
     =yield
+
+    .footer
+      .site-info
+        .footer-sitemap
+          .col
+            .sitemap-heading
+              %h4 Product
+            .sitemap-list
+              %ul
+                %li=link_to 'Home', root_path
+                %li=link_to 'Contests', contests_path
+                %li=link_to 'Blog', posts_path
+          .col
+            .sitemap-heading
+              %h4 Company
+            .sitemap-list
+              %ul
+                %li=link_to 'About'
+                %li=link_to 'Contact'
+          .col
+            %h4 Letstars
+            All rights reserved 2015
+            %br
+            Letstars.inc
+        .footer-company-description
+          Here you can show your talent, express yourself and share your thoughts, take part in various music contests and in consequence gain fame and win prizes.
+        .footer-subcontent
+          %ul
+            %li
+              dont forget to follow us
+            %li
+              .social
+                =link_to((image_tag 'instagram.svg'),'http://www.wsd.com')
+            %li
+              .social
+                =link_to((image_tag 'facebook.svg'),'http://www.wsd.com')
+            %li
+              .social
+                =link_to((image_tag 'twitter.svg'),'https://twitter.com/letstarscom')
+            %li
+              .social
+                =link_to((image_tag 'youtube.svg'),'https://www.youtube.com/channel/UC8wT5JRkW7FGywTfkgYemIg')
