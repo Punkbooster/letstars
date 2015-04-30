@@ -2,13 +2,10 @@
   .text-center
     %h2=@contest.title
     %p=image_tag @contest.image
-    =@contest.description
+    = @contest.description
+    = @contest.musics.count
+    =render @contest.musics
   %hr
-  .contest-songs
-    songs:
 
-  =link_to "back", root_path
-
-  =link_to "Delete", contest_path, method: :delete
-
-
+=link_to "back", root_path
+=link_to "Delete", contest_path, method: :delete
