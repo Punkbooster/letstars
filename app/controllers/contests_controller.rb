@@ -1,7 +1,10 @@
 class ContestsController < ApplicationController
   before_action :find_contest, only: [:show,:update,:edit,:destroy]
+
+
   def index
     @contests = Contest.all
+    @posts=Post.all
   end
 
   def new
@@ -30,7 +33,8 @@ class ContestsController < ApplicationController
   end
 
   def destroy
-
+    @contest.destroy
+    redirect_to root_path
   end
 
   private
@@ -42,5 +46,6 @@ class ContestsController < ApplicationController
     def find_contest
       @contest=Contest.find(params[:id])
     end
-  end
+
+end
 

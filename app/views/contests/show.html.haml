@@ -1,26 +1,10 @@
-.wrap{:style=>'margin-top:60px;'}
+.wrap
   .text-center
     %h2=@contest.title
     %p=image_tag @contest.image
     =@contest.description
   %hr
- 
-  %p#notice= notice
-  %h1 Listing Music
-  %table
-    %thead
-      %tr
-        %th Track
-        %th{:colspan => "3"}
-    %tbody
-      - @musics.each do |music|
-        %tr
-          %td= music.audio_file_name
-          %td= link_to 'Show', music
-          %td= link_to 'Edit', edit_music_path(music)
-          %td= link_to 'Destroy', music, method: :delete, data: { confirm: 'Are you sure?' }
-  %br/
-  = link_to 'New music', new_music_path
-
+  .contest-songs
+     songs:
   =link_to "back", root_path
   =link_to "Delete", contest_path, method: :delete

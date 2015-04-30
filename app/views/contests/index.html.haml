@@ -1,7 +1,17 @@
-%h1 Halo
--@contests.each do |contest|
-  =contest.title
-  =image_tag contest.image
-  =contest.description
-  %br/
-=link_to 'new', new_contest_path
+.header
+.contests
+  .wrap
+    .text-center
+      .topic
+        All contests
+    %hr
+    .text-center
+      -@contests.each do |contest|
+        .contest
+          .contest-title
+            .topic
+              =contest.title
+          .contest-image
+            %hr
+            =image_tag contest.image, size:"300"
+          =button_to "Take a part", contest, method: :get , class: 'btn btn-default btn-lg btn-block'
