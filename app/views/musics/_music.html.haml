@@ -1,5 +1,5 @@
 .content
-	%p= contest.music
+	= @music.audio_file_name
 
 .buttons	
 	= link_to "Edit", edit_contest_music_path(music.contest, music)

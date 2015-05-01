@@ -4,8 +4,14 @@
     %p=image_tag @contest.image
     = @contest.description
     = @contest.musics.count
-    =render @contest.musics
+
+    
   %hr
+  %p
+    = @contest.musics.count
+  %p  
+    =render @contest.musics
+    =render 'musics/form'
 
 =link_to "back", root_path
 =link_to "Delete", contest_path, method: :delete

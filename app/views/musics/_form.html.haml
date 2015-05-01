@@ -1,3 +1,2 @@
-= simple_form_for([@contest, @contest.musics.build]) do |f|
-	= f.input :audio
-	= f.submit
+= form_for(@music) do |f|
+  Treck (mp3):#{f.file_field :audio}#{f.submit}

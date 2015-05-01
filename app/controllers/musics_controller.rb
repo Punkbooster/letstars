@@ -1,4 +1,9 @@
-class musicsController < ApplicationController
+class MusicsController < ApplicationController
+  before_action :set_music, only: [:show, :edit, :update, :destroy, :new]
+
+  def new
+    @music = Music.new
+  end
 
   def create
     @contest = Contest.find(params[:contest_id])
@@ -35,5 +40,26 @@ class musicsController < ApplicationController
     @music.destroy
     redirect_to contest_path(@contest)
   end
+
+  def audio_download
+   @music = Music.find(params[:id])
+   file_path = @music.audio_file_name
+   if !file_path.nil?
+    send_file "#{Rails.root}/public/system/audios/#{@music.id}/original/#{file_path}", :x_sendfile => true
+  else
+   redirect_to musics_url
+  end
+  end  
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_music
+      @music = Music.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def music_params
+      params.require(:music).permit(:audio)
+    end
 
 end
