@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  audio: MyString
+  contest_id: 
+  user_id: 
+
+two:
+  audio: MyString
+  contest_id: 
+  user_id: 

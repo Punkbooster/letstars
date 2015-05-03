@@ -15,13 +15,15 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300);
 *{
   margin:0;
   padding:0;
 }
 html,body{
-  height: 100%;
+
+  background: #EDEFF0;
 }
 .navbar{
   top:0;
@@ -32,7 +34,7 @@ html,body{
   font-size: large;
   width:100%;
   height:60px;
-  background:rgba(137,144,214,0.9);
+  background-color:#397CAC;;
   a{
     color:#F7F7F7;
     &:hover{
@@ -195,3 +197,72 @@ html,body{
     text-align: right;
   }
 }
+
+/*============================================= Arsen CSS */
+
+#post_content {
+    background: white;
+    padding: 2em 5%;
+    border-radius: .5em;
+    margin-top: 6em;
+    .title {
+      color: #397CAC;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 2.5em;
+      margin-bottom: 0;
+    }
+    .date {
+      padding-top:1em;
+    }
+
+    .body {
+      font-size: 1.5em;
+      line-height: 1.75;
+      padding-top: 0.4em;
+    }
+    #comments {
+      h3 {
+        padding-bottom: 1em;
+        padding-top:2em;
+        border-bottom: 2px solid #D1d1d1;
+      }
+    #comment_content {
+        padding:4em 3em;
+        border-bottom: 1px solid #D1d1d1;
+      }
+      .buttons {
+        width: 25%;
+        float: right;
+        font-size: 1em;
+        text-align: right;
+        padding-top: 1.5em;
+      a {
+        color: #397CAC;
+        border: 1px solid #397CAC;
+        padding: .5em 1em;
+        border-radius: 0.2em;
+        text-decoration: none;
+        margin-right: 2%;
+        }
+      }
+      input[type="submit"] {
+        background: #397CAC;
+        border: none;
+        color: white;
+        font-weight: 100;
+        padding: .5em 1em;
+        border-radius: .2em;
+      }
+      textarea {
+        width: 100%;
+        min-height: 200px;
+        border: 1px solid #d1d1d1;
+        border-radius: .2em;
+        margin: 1em 0;
+  } 
+
+    }
+
+
+}  

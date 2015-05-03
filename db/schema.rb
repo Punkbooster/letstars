@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426074615) do
+ActiveRecord::Schema.define(version: 20150430155415) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 20150426074615) do
   end
 
   add_index "contests", ["track_id"], name: "index_contests_on_track_id"
+
+  create_table "musics", force: :cascade do |t|
+    t.string   "audio"
+    t.integer  "contest_id"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
+  end
+
+  add_index "musics", ["contest_id"], name: "index_musics_on_contest_id"
+  add_index "musics", ["user_id"], name: "index_musics_on_user_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title_blog"

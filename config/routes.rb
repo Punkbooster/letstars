@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   root "home#index"
-  resources :contests
+  resources :contests do
+  	resources :musics
+  end
+
   resources :posts do
   	resources :comments
   end
