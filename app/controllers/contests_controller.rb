@@ -5,6 +5,7 @@ class ContestsController < ApplicationController
   def index
     @contests = Contest.all
     @posts=Post.all
+
   end
 
   def new
@@ -21,7 +22,8 @@ class ContestsController < ApplicationController
   end
 
   def show
-
+    @musics = @contest.musics
+    @music = Music.new
   end
 
   def edit

@@ -2,13 +2,24 @@
   .text-center
     %h2=@contest.title
     %p=image_tag @contest.image
-    =@contest.description
+    = @contest.description
+    = @contest.musics.count
+
   %hr
-  .contest-songs
-    songs:
+  %p
+    = @contest.musics.count
+    
+  %p
+    
+    %ul
+    - @musics.each do |music|
+      %p
+        %tr
+          %td
+            = music.audio_file_name
+            %audio{:controls => ""}
+              %source{:src => music.audio.url, :type => "audio/mpeg"}
+    =render 'musics/form'
 
-  =link_to "back", root_path
-
-  =link_to "Delete", contest_path, method: :delete
-
-
+=link_to "back", root_path
+=link_to "Delete", contest_path, method: :delete
