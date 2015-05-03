@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-
+before_action :find_post, only: [:create,:edit,:update,:destroy]
+before_action :admin_validation, only: [:edit,:destroy]
 	def create
-		@post = Post.find(params[:post_id])
 		@comment = @post.comments.create(params[:comment].permit(:comment))
 		@comment.user_id = current_user.id if current_user
 		@comment.save
@@ -14,12 +14,10 @@ class CommentsController < ApplicationController
 	end
 
 	def edit
-		@post = Post.find(params[:post_id])
 		@comment = @post.comments.find(params[:id])
 	end	
 
 	def update
-		@post = Post.find(params[:post_id])
 		@comment = @post.comments.find(params[:id])
 
 		if @comment.update(params[:comment].permit(:comment))
@@ -30,9 +28,20 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
-		@post = Post.find(params[:post_id])
 		@comment = @post.comments.find(params[:id])
 		@comment.destroy
 		redirect_to post_path(@post)
 	end
+
+	private
+
+		def admin_validation
+			if current_user.role !='administrator'
+				redirect_to root_path
+			end
+		end
+
+		def find_post
+			@post=Post.find(params[:post_id])
+		end
 end
