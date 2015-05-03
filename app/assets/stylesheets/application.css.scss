@@ -186,6 +186,7 @@ html,body{
   }
 }
 .post {
+  padding:1em 5%;
   .post-annotation {
     width: 100%;
     white-space: nowrap;
@@ -199,20 +200,29 @@ html,body{
 }
 
 /*============================================= Arsen CSS */
+.well {
+  background-color: white;
+}
 
 #post_content {
+
     background: white;
     padding: 2em 5%;
     border-radius: .5em;
     margin-top: 6em;
+    border-radius:3px;
+    margin-bottom:3em;
     .title {
+      border-bottom: 1px solid #e3e3e3;
       color: #397CAC;
       font-weight: 500;
       text-decoration: none;
       font-size: 2.5em;
       margin-bottom: 0;
+      padding-bottom:20px;
     }
     .date {
+      text-align: right;
       padding-top:1em;
     }
 
@@ -221,6 +231,7 @@ html,body{
       line-height: 1.75;
       padding-top: 0.4em;
     }
+
     #comments {
       h3 {
         padding-bottom: 1em;
