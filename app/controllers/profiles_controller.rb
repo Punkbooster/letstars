@@ -16,11 +16,15 @@ class ProfilesController < ApplicationController
   end
 
   def show
-
+    @musics=Music.where(user_id: @profile.user_id)
   end
 
   def edit
+    if @profile.user_id != current_user.id
+      redirect_to @profile
+    else
 
+    end
   end
 
   def update

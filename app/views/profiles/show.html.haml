@@ -6,11 +6,19 @@
       %p=@profile.band
       %i
         %p=@profile.role
-      =link_to 'Edit', edit_profile_path, class: 'btn btn-default', :style=>'width:100px; background-color:transparent; color:white'
+      -if @profile.user_id == current_user.id
+        =link_to 'Edit', edit_profile_path, class: 'btn btn-default', :style=>'width:100px; background-color:transparent; color:white'
+      -else
+        
 .wrap
   .text-center
     %p=@profile.about
   %hr
   Your songs:
   %br/
+  -@musics.each do |music|
+    %audio{:controls => ""}
+      %source{:src => music.audio.url, :type => "audio/mpeg"}
+    = music.audio_file_name
+    %br/
   =link_to "Back", root_path
