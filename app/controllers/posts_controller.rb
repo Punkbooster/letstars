@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+	before_action :admin_validation, only: [:new,:edit,:destroy]
+
 	def index
 		@posts = Post.all.order('created_at DESC')
 	end
@@ -42,8 +44,12 @@ class PostsController < ApplicationController
 		redirect_to root_path
 	end
 
-	private 
-
+	private
+		def admin_validation
+			if current_user.role !='administrator'
+				redirect_to root_path
+			end
+		end
 		def post_params
 			params.require(:post).permit(:title_blog, :content_blog)
 		end
