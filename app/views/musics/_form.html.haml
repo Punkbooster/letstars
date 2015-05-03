@@ -1,2 +1,2 @@
-= form_for(@music) do |f|
+= form_for([@contest, @music]) do |f|
   Treck (mp3):#{f.file_field :audio}#{f.submit}

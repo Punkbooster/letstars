@@ -5,12 +5,20 @@
     = @contest.description
     = @contest.musics.count
 
-    
   %hr
   %p
     = @contest.musics.count
-  %p  
-    =render @contest.musics
+    
+  %p
+    
+    %ul
+    - @musics.each do |music|
+      %p
+        %tr
+          %td
+            = music.audio_file_name
+            %audio{:controls => ""}
+              %source{:src => music.audio.url, :type => "audio/mpeg"}
     =render 'musics/form'
 
 =link_to "back", root_path

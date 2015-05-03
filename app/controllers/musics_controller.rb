@@ -1,16 +1,19 @@
 class MusicsController < ApplicationController
-  before_action :set_music, only: [:show, :edit, :update, :destroy, :new]
+  before_action :set_music, only: [:show, :edit, :update, :destroy]
+  before_action :load_contest
+  
 
   def new
     @music = Music.new
   end
 
   def create
-    @contest = Contest.find(params[:contest_id])
-    @music = @contest.musics.create(params[:music].permit(:audio))
-    #@music.user_id = current_user.id if current_user
-    @music.save
 
+    @music = Music.new(music_params)
+   
+    @music.user_id = current_user.id
+    @music.contest_id=@contest.id
+   
     if @music.save
       redirect_to contest_path(@contest)
     else
@@ -18,10 +21,6 @@ class MusicsController < ApplicationController
     end
   end
 
-  def edit
-    @contest = Contest.find(params[:contest_id])
-    @music = @contest.musics.find(params[:id])
-  end 
 
   def update
     @contest = Contest.find(params[:contest_id])
@@ -62,4 +61,7 @@ class MusicsController < ApplicationController
       params.require(:music).permit(:audio)
     end
 
+    def load_contest
+      @contest = Contest.find(params[:contest_id])
+    end
 end
