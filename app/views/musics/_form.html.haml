@@ -1,3 +1,5 @@
-=@contest.title
-= form_for([@contest, @music]) do |f|
-  Treck (mp3):#{f.file_field :audio}#{f.submit}
+-if Time.now.day > @contest.contest_end.day
+  End of applying
+-else
+  = form_for([@contest, @music]) do |f|
+    Treck (mp3):#{f.file_field :audio}#{f.submit}
