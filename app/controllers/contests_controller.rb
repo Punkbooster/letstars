@@ -4,8 +4,6 @@ class ContestsController < ApplicationController
 
   def index
     @contests = Contest.all
-    @posts=Post.all
-
   end
 
   def new
