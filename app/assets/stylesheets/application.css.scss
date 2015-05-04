@@ -209,15 +209,13 @@ hr{
   margin-left:0px;
   margin-right: 0px;
 }
-
 #post_content {
-
-    background: white;
-    padding: 2em 5%;
-    border-radius: .5em;
-    margin-top: 6em;
-    border-radius:3px;
-    margin-bottom:3em;
+  background: white;
+  padding: 2em 5%;
+  border-radius: .5em;
+  margin-top: 6em;
+  border-radius:3px;
+  margin-bottom:3em;
     .title {
       border-bottom: 1px solid #e3e3e3;
       color: #397CAC;
@@ -225,11 +223,11 @@ hr{
       text-decoration: none;
       font-size: 2.5em;
       margin-bottom: 0;
-      padding-bottom:20px;
+      padding-bottom: 20px;
     }
     .date {
       text-align: right;
-      padding-top:1em;
+      padding-top: 1em;
     }
 
     .body {
@@ -237,7 +235,6 @@ hr{
       line-height: 1.75;
       padding-top: 0.4em;
     }
-
     #comments {
       h3 {
         padding-bottom: 1em;
