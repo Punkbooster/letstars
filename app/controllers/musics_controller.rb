@@ -4,7 +4,11 @@ class MusicsController < ApplicationController
   
 
   def new
-    @music = Music.new
+    if Time.now.day >@contest.contest_end.day
+      redirect_to root_path
+    else
+      @music = Music.new
+    end
   end
 
   def create
