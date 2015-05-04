@@ -47,7 +47,7 @@ class ContestsController < ApplicationController
     end
 
     def contest_params
-      params.require(:contest).permit(:title,:image,:description)
+      params.require(:contest).permit(:title,:image,:description, :contest_end,:voting_end)
     end
 
     def find_contest

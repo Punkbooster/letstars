@@ -14,7 +14,8 @@
   .text-center
     %p=@profile.about
   %hr
-  Your songs:
+  .text-center
+    User songs:
   %br/
   -@musics.each do |music|
     %audio{:controls => ""}
