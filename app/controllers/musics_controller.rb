@@ -50,6 +50,13 @@ class MusicsController < ApplicationController
   end
   end  
 
+  def upvote
+    @contest = Contest.find(params[:contest_id])
+    @music = @contest.musics.find(params[:id])
+    @music.upvote_by current_user
+    redirect_to contest_path(@contest)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_music

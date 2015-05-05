@@ -39,6 +39,7 @@ class ContestsController < ApplicationController
     redirect_to root_path
   end
 
+
   private
 
     def contest_params

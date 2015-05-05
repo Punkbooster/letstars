@@ -17,6 +17,8 @@
         %tr
           %td
             = music.audio_file_name
+            = link_to "upvote", like_contest_music_path(@contest, music), method: :put
+            = music.score
             %audio{:controls => ""}
               %source{:src => music.audio.url, :type => "audio/mpeg"}
     =render 'musics/form'

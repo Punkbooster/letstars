@@ -5,7 +5,12 @@ Rails.application.routes.draw do
 
   root "home#index"
   resources :contests do
-  	resources :musics
+  	resources :musics do
+      member do
+        put "like", to: "musics#upvote"
+        put "dislike", to: "musicss#downvote"
+      end
+    end
   end
 
   resources :posts do
