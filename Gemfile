@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'carrierwave', '~> 0.10.0'
 gem 'haml'
 gem 'paperclip'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'byebug'

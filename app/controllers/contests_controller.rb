@@ -22,6 +22,7 @@ class ContestsController < ApplicationController
   def show
     @musics = @contest.musics
     @music = Music.new
+    
   end
 
   def edit
@@ -36,6 +37,7 @@ class ContestsController < ApplicationController
     @contest.destroy
     redirect_to root_path
   end
+
 
   private
     def admin_validation
