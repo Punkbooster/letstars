@@ -200,6 +200,42 @@ hr{
     text-align: right;
   }
 }
+#post_index {
+  background: white;
+  border-radius: .5em;
+  margin-top: 6em;
+  border-radius: 3px;
+  margin-bottom: 3em;
+  height:200px;
+  overflow: hidden;
+  #post_index_image{
+    float:left;
+    height:100%;
+    width:30%;
+    overflow:hidden;
+    img{
+      border-radius: 3px 0 0 3px;
+    }
+  }
+  #post_index_content{
+    float:left;
+    width:70%;
+    padding:1em;
+    .title {
+      border-bottom: 1px solid #e3e3e3;
+      color: #397CAC;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 2.5em;
+      margin-bottom: 0;
+      padding-bottom: 20px;
+    }
+    .date {
+      text-align: right;
+      padding-top: 1em;
+    }
+  }
+}
 
 /*============================================= Arsen CSS */
 .well {
@@ -209,6 +245,7 @@ hr{
   margin-left:0px;
   margin-right: 0px;
 }
+
 #post_content {
   background: white;
   padding: 2em 5%;
@@ -216,7 +253,7 @@ hr{
   margin-top: 6em;
   border-radius:3px;
   margin-bottom:3em;
-    .title {
+  .title {
       border-bottom: 1px solid #e3e3e3;
       color: #397CAC;
       font-weight: 500;
