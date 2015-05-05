@@ -24,6 +24,7 @@ class ContestsController < ApplicationController
   def show
     @musics = @contest.musics
     @music = Music.new
+    
   end
 
   def edit

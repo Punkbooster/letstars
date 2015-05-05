@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   	resources :musics do
       member do
         put "like", to: "musics#upvote"
-        put "dislike", to: "musicss#downvote"
       end
     end
   end
