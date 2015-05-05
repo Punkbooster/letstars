@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20150504083549) do
     t.integer  "track_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.datetime "contest_end"
+    t.datetime "voting_end"
   end
 
   add_index "contests", ["track_id"], name: "index_contests_on_track_id"
@@ -55,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150504083549) do
     t.text     "content_blog"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "image"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -84,6 +87,7 @@ ActiveRecord::Schema.define(version: 20150504083549) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,7 +1,7 @@
 .wrap
   .text-center
     %h2=@contest.title
-    %p=image_tag @contest.image
+    %p=image_tag @contest.image, size:'600'
     = @contest.description
     = @contest.musics.count
 

@@ -1,12 +1,14 @@
 .row
-	.col-lg-2
-	.col-lg-8
-		#posts
-			- @posts.each do |post|
-				#post_content
-					%h1.title
-						= link_to post.title_blog, post
-					%p.date 
-						Published at:
-						=time_ago_in_words(post.created_at)
-
+  .col-lg-2
+  .col-lg-8
+    #posts
+      - @posts.each do |post|
+        #post_index
+          #post_index_image
+            =image_tag post.image, size:'200'
+          #post_index_content
+            %h1.title
+              = link_to post.title_blog, post
+            %p.date
+              Published at:
+              =time_ago_in_words(post.created_at)

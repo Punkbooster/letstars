@@ -4,11 +4,14 @@ class MusicsController < ApplicationController
   
 
   def new
-    @music = Music.new
+    if Time.now.day >@contest.contest_end.day
+      redirect_to root_path
+    else
+      @music = Music.new
+    end
   end
 
   def create
-
     @music = Music.new(music_params)
    
     @music.user_id = current_user.id
@@ -23,7 +26,6 @@ class MusicsController < ApplicationController
 
 
   def update
-    @contest = Contest.find(params[:contest_id])
     @music = @contest.musics.find(params[:id])
 
     if @music.update(params[:music].permit(:audio))
@@ -34,7 +36,6 @@ class MusicsController < ApplicationController
   end
 
   def destroy
-    @contest = Contest.find(params[:contest_id])
     @music = @contest.musics.find(params[:id])
     @music.destroy
     redirect_to contest_path(@contest)

@@ -2,7 +2,12 @@ class ProfilesController < ApplicationController
   before_action :find_profile, only: [:show,:update,:edit,:destroy]
   before_action :authenticate_user!
   def new
-    @profile=Profile.new
+    if Profile.where(user_id: current_user.id).count == 0
+      @profile=Profile.new
+    else
+      redirect_to root_path
+    end
+
   end
 
   def create
@@ -12,15 +17,19 @@ class ProfilesController < ApplicationController
       redirect_to @profile
     else
       render 'new'
-    end
+      end
   end
 
   def show
-
+    @musics=Music.where(user_id: @profile.user_id)
   end
 
   def edit
+    if @profile.user_id != current_user.id
+      redirect_to @profile
+    else
 
+    end
   end
 
   def update
