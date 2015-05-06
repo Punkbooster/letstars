@@ -16,9 +16,11 @@
         -else
           =link_to 'New Profile', new_profile_path
         =link_to 'Home', root_path
-        =link_to 'New contest', new_contest_path
-        =link_to 'New post', new_post_path
         =link_to 'log out', destroy_user_session_path, method: :delete
+
+        -if current_user.role == 'administrator'
+          =link_to 'New contest', new_contest_path
+          =link_to 'New post', new_post_path
 
     =yield
 
@@ -38,8 +40,8 @@
               %h4 Company
             .sitemap-list
               %ul
-                %li=link_to 'About'
-                %li=link_to 'Contact'
+                %li=link_to 'About', about_path
+                %li=link_to 'Contact', contact_path
           .col
             %h4 Letstars
             All rights reserved 2015

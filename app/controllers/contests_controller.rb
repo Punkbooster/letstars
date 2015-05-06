@@ -1,11 +1,9 @@
 class ContestsController < ApplicationController
   before_action :find_contest, only: [:show,:update,:edit,:destroy]
-
+  before_action :admin_validation, only: [:new,:edit,:destroy]
 
   def index
     @contests = Contest.all
-    @posts=Post.all
-
   end
 
   def new
@@ -24,6 +22,7 @@ class ContestsController < ApplicationController
   def show
     @musics = @contest.musics
     @music = Music.new
+    
   end
 
   def edit
@@ -39,10 +38,16 @@ class ContestsController < ApplicationController
     redirect_to root_path
   end
 
+
   private
+    def admin_validation
+      if current_user.role !='administrator'
+        redirect_to root_path
+      end
+    end
 
     def contest_params
-      params.require(:contest).permit(:title,:image,:description)
+      params.require(:contest).permit(:title,:image,:description, :contest_end,:voting_end)
     end
 
     def find_contest

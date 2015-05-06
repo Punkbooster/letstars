@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   root "home#index"
   resources :contests do
-  	resources :musics
+  	resources :musics do
+      member do
+        put "like", to: "musics#upvote"
+      end
+    end
   end
 
   resources :posts do
@@ -13,5 +17,8 @@ Rails.application.routes.draw do
   end
 
   resources :profiles
+
+  get '/about', to: 'pages#about'
+  get '/contact', to: 'pages#contact'
 
 end
