@@ -35,10 +35,10 @@ hr{
   padding: 1em;
   font-size: large;
   width:100%;
-  height:60px;
-  background-color:#397CAC;;
+  height:90px;
+  background-color:#EDEFF0;
   a{
-    color:#F7F7F7;
+    color:#333333;
     &:hover{
       text-decoration: none;
       color:lavender;
@@ -46,9 +46,10 @@ hr{
   }
 }
 .header{
-  width: 100%;
-  height:575px;
-  background:url('/assets/background.jpg');
+  margin-top:90px;
+  width: auto;
+  height:650px;
+  background:url('/assets/BannerAu5.0.gif');
   background-size: cover;
   .logo{
     width:300px;

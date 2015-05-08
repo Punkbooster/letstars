@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
 	before_action :admin_validation, only: [:new,:edit,:destroy]
 
 	def index
