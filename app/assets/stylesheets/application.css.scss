@@ -36,9 +36,9 @@ hr{
   font-size: large;
   width:100%;
   height:60px;
-  background-color:#397CAC;;
+  background-color:#EDEFF0;
   a{
-    color:#F7F7F7;
+    color:#333333;
     &:hover{
       text-decoration: none;
       color:lavender;
@@ -46,10 +46,11 @@ hr{
   }
 }
 .header{
-  width: 100%;
-  height:575px;
-  background:url('/assets/background.jpg');
-  background-size: cover;
+  margin-top:60px;
+  width: auto;
+  height:550px;
+  background:url('/assets/BannerAu5.0.gif') no-repeat;
+  background-size: 100%;
   .logo{
     width:300px;
     height:170px;

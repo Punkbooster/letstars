@@ -9,8 +9,7 @@
   %p
     = @contest.musics.count
     
-  %p
-    
+  %p  
     %ul
     - @musics.each do |music|
       %p
@@ -18,7 +17,6 @@
           %td
             - if current_user.voted_for?(music)
               = music.audio_file_name
-              = "You have already voted"
               = music.score
             - else
               = music.audio_file_name
