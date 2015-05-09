@@ -25,7 +25,10 @@
               
             %audio{:controls => ""}
               %source{:src => music.audio.url, :type => "audio/mpeg"}
-    =render 'musics/form'
+    -if @contest.code != nil
+      blocked
+    -else
+      =render 'musics/form'
 
 =link_to "back", root_path
 =link_to "Delete", contest_path, method: :delete
