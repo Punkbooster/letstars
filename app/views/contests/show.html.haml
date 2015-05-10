@@ -15,7 +15,7 @@
       %p
         %tr
           %td
-            - if current_user.voted_for?(music)
+            - if !current_user.can_vote?(@contest)
               = music.audio_file_name
               = music.score
             - else
