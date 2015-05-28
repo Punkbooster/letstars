@@ -14,7 +14,6 @@
       %p
         %tr
           %td
-<<<<<<< HEAD
             -if user_signed_in?
               - if current_user.voted_for?(music)
                 = music.audio_file_name
@@ -23,7 +22,6 @@
                 = music.audio_file_name
                 = link_to "upvote", like_contest_music_path(@contest, music), method: :put
                 = music.score
-=======
             - if !current_user.can_vote?(@contest)
               = music.audio_file_name
               = music.score
@@ -31,8 +29,6 @@
               = music.audio_file_name
               = link_to "upvote", like_contest_music_path(@contest, music), method: :put
               = music.score
-              
->>>>>>> 6d9f3a5175b916ab3a45273905a30c45d525c98a
             %audio{:controls => ""}
               %source{:src => music.audio.url, :type => "audio/mpeg"}
     -if @contest.code != ''
