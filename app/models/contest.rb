@@ -8,4 +8,5 @@ class Contest < ActiveRecord::Base
   validates :description, presence: true
   validates :contest_end, presence: true
   validates :voting_end, presence: true
+
 end

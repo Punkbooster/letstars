@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+$(document).ready(function(){
+	$(document).scroll(function() {
+	  var y = $(this).scrollTop();
+	  if (y > 300) {
+	    $('.appearing-contest').fadeIn();
+	  } else {
+	    $('.appearing-contest').fadeOut();
+	  }
+	});
+
+});

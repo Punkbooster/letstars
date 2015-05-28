@@ -9,4 +9,14 @@ class User < ActiveRecord::Base
   has_many :comments
   has_one :profile
   has_many :musics
+
+  def can_vote?(contest)
+  	contest.musics.each do |music|
+  		if self.voted_for?(music)
+  			return false
+		end
+  	end
+
+  	return true
+  end
 end
