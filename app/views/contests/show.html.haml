@@ -3,13 +3,12 @@
     %h2=@contest.title
     %p=image_tag @contest.image, size:'600'
     = @contest.description
-    = @contest.musics.count
 
   %hr
   %p
     = @contest.musics.count
-    
-  %p  
+    Tracks in contest
+  %p
     %ul
     - @musics.each do |music|
       %p
@@ -23,11 +22,16 @@
                 = music.audio_file_name
                 = link_to "upvote", like_contest_music_path(@contest, music), method: :put
                 = music.score
-                
             %audio{:controls => ""}
               %source{:src => music.audio.url, :type => "audio/mpeg"}
     -if @contest.code != ''
-      blocked
+      -@promo='1'
+      Insert promo-code here:
+
+      %input#promo{:type => "text"}
+      %span#hidenForm
+        sdad
+      =@promo
     -else
       =render 'musics/form'
 

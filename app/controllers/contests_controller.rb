@@ -3,7 +3,7 @@ class ContestsController < ApplicationController
   before_action :admin_validation, only: [:new,:edit,:destroy]
 
   def index
-    @contests = Contest.all
+    @contests = Contest.all.order('created_at DESC')
   end
 
   def new
