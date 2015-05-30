@@ -6,57 +6,56 @@
     %i
       %span.logo-text show your talent
 
-
-.contests
-  .wrap
+.wrap
+  .contests
     .text-center
       .appearing-contest
         .topic
           Latest contests:
 
-    .text-center
-      .appearing-contest
-        -@contests.each do |contest|
-          -@modalName = '#myModal' + contest.id.to_s
-          .contest
-            .contest-title
-              .topic
-                =contest.title
-
-                .i.fa.fa-pinterest-p
-
-            .contest-image
-              =image_tag contest.image, size:"300"
-            %button.btn.btn-default.btn-lg.btn-block{"data-target" => @modalName, "data-toggle" => "modal", :type => "button"}
-              More
-        = will_paginate @contests, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer", inner_window: 0, outer_window: 0;      
-    .text-center
-      .appearing-contest
-        .topic
-          %p=link_to 'View all contests', contests_path, class:'btn btn-default'
-
-
-  .wrap
-    .text-center
-      .appearing-post
-        .topic
-          Latest news
-    .appearing-post      
-      - @posts.each do |post|
-        .well.well-sm
-          .post
-            %h3.title
-              = link_to post.title_blog, post
-            .post-annotation
-              = post.content_blog
-            %hr
-            %p.post-date
-              Published at:
-              =time_ago_in_words(post.created_at)
-    .appearing-post          
       .text-center
-        .topic
-          %p=link_to 'View all news', posts_path, class:'btn btn-default'
+        .appearing-contest
+          -@contests.each do |contest|
+            -@modalName = '#myModal' + contest.id.to_s
+            .contest
+              .contest-title
+                .topic
+                  =contest.title
+
+                  .i.fa.fa-pinterest-p
+
+              .contest-image
+                =image_tag contest.image, size:"300"
+              %button.btn.btn-default.btn-lg.btn-block{"data-target" => @modalName, "data-toggle" => "modal", :type => "button"}
+                More
+          = will_paginate @contests, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer", inner_window: 0, outer_window: 0;      
+      .text-center
+        .appearing-contest
+          .topic
+            %p=link_to 'View all contests', contests_path, class:'btn btn-default'
+
+
+.wrap
+  .text-center
+    .appearing-post
+      .topic
+        Latest news
+  .appearing-post      
+    - @posts.each do |post|
+      .well.well-sm
+        .post
+          %h3.title
+            = link_to post.title_blog, post
+          .post-annotation
+            = post.content_blog
+          %hr
+          %p.post-date
+            Published at:
+            =time_ago_in_words(post.created_at)
+  .appearing-post          
+    .text-center
+      .topic
+        %p=link_to 'View all news', posts_path, class:'btn btn-default'
 
 
 -@contests.each do |contest|
