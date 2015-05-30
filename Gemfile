@@ -19,6 +19,9 @@ gem 'haml'
 gem 'paperclip'
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem 'will_paginate-bootstrap'
+gem 'will_paginate' 
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
