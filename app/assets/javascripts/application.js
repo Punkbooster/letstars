@@ -26,7 +26,7 @@ $(document).ready(function(){
 	  }
 	  
 	  var x = $(this).scrollTop();
-	  if (x > 1500) {
+	  if (x > 1100) {
 	    $('.appearing-post').fadeIn(2000);
 	  } else {
 	    $('.appearing-post').fadeOut();
