@@ -56,6 +56,7 @@
     .text-center
       .topic
         %p=link_to 'View all news', posts_path, class:'btn btn-default'
+    = will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer", inner_window: 0, outer_window: 0;      
 
 
 -@contests.each do |contest|
