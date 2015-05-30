@@ -16,9 +16,6 @@
         .topic
           Latest contests:
 
-      %hr
-        %hr
-
     .text-center
       .appearing-contest
         -@contests.each do |contest|
@@ -30,8 +27,6 @@
 
                 .i.fa.fa-pinterest-p
 
-
-            %hr
             .contest-image
               =image_tag contest.image, size:"300"
             %button.btn.btn-default.btn-lg.btn-block{"data-target" => @modalName, "data-toggle" => "modal", :type => "button"}
@@ -41,9 +36,6 @@
         .topic
           %p=link_to 'View all contests', contests_path, class:'btn btn-default'
 
-    %hr
-
-    %hr
 
   .wrap
     .text-center
