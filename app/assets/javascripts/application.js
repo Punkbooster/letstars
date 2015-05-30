@@ -20,9 +20,16 @@ $(document).ready(function(){
 	$(document).scroll(function() {
 	  var y = $(this).scrollTop();
 	  if (y > 300) {
-	    $('.appearing-contest').fadeIn();
+	    $('.appearing-contest').fadeIn(2000);
 	  } else {
 	    $('.appearing-contest').fadeOut();
+	  }
+	  
+	  var x = $(this).scrollTop();
+	  if (x > 1500) {
+	    $('.appearing-post').fadeIn(2000);
+	  } else {
+	    $('.appearing-post').fadeOut();
 	  }
 	});
 

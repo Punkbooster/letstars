@@ -6,8 +6,6 @@
     %i
       %span.logo-text show your talent
 
-.bottomMenu
-  Some content of bottom
 
 .contests
   .wrap
@@ -39,22 +37,25 @@
 
   .wrap
     .text-center
-      .topic
-        Latest news
-    - @posts.each do |post|
-      .well.well-sm
-        .post
-          %h3.title
-            = link_to post.title_blog, post
-          .post-annotation
-            = post.content_blog
-          %hr
-          %p.post-date
-            Published at:
-            =time_ago_in_words(post.created_at)
-    .text-center
-      .topic
-        %p=link_to 'View all news', posts_path, class:'btn btn-default'
+      .appearing-post
+        .topic
+          Latest news
+    .appearing-post      
+      - @posts.each do |post|
+        .well.well-sm
+          .post
+            %h3.title
+              = link_to post.title_blog, post
+            .post-annotation
+              = post.content_blog
+            %hr
+            %p.post-date
+              Published at:
+              =time_ago_in_words(post.created_at)
+    .appearing-post          
+      .text-center
+        .topic
+          %p=link_to 'View all news', posts_path, class:'btn btn-default'
 
 
 -@contests.each do |contest|
