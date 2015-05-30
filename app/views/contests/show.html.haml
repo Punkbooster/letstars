@@ -3,7 +3,6 @@
     %h2=@contest.title
     %p=image_tag @contest.image, size:'600'
     = @contest.description
-    = @contest.musics.count
 
   %hr
   %p
@@ -15,6 +14,17 @@
       %p
         %tr
           %td
+
+=======
+            -if user_signed_in?
+              - if current_user.voted_for?(music)
+                = music.audio_file_name
+                = music.score
+              - else
+                = music.audio_file_name
+                = link_to "upvote", like_contest_music_path(@contest, music), method: :put
+                = music.score
+
             - if !current_user.can_vote?(@contest)
               = music.audio_file_name
               = music.score
@@ -22,10 +32,18 @@
               = music.audio_file_name
               = link_to "upvote", like_contest_music_path(@contest, music), method: :put
               = music.score
-              
             %audio{:controls => ""}
               %source{:src => music.audio.url, :type => "audio/mpeg"}
-    =render 'musics/form'
+    -if @contest.code != ''
+      -@promo='1'
+      Insert promo-code here:
+
+      %input#promo{:type => "text"}
+      %span#hidenForm
+        sdad
+      =@promo
+    -else
+      =render 'musics/form'
 
 =link_to "back", root_path
 =link_to "Delete", contest_path, method: :delete

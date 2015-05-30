@@ -15,7 +15,10 @@
       .appearing-contest
         .topic
           Latest contests:
+
       %hr
+        %hr
+
     .text-center
       .appearing-contest
         -@contests.each do |contest|
@@ -24,7 +27,9 @@
             .contest-title
               .topic
                 =contest.title
+
                 .i.fa.fa-pinterest-p
+
 
             %hr
             .contest-image
@@ -35,7 +40,11 @@
       .appearing-contest
         .topic
           %p=link_to 'View all contests', contests_path, class:'btn btn-default'
+
     %hr
+
+    %hr
+
   .wrap
     .text-center
       .topic

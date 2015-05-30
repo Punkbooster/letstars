@@ -3,7 +3,7 @@ class ContestsController < ApplicationController
   before_action :admin_validation, only: [:new,:edit,:destroy]
 
   def index
-    @contests = Contest.all
+    @contests = Contest.all.order('created_at DESC')
   end
 
   def new
@@ -30,6 +30,11 @@ class ContestsController < ApplicationController
   end
 
   def update
+    if @contest.update(contest_params)
+      redirect_to @contest
+    else
+      render 'edit'
+    end
 
   end
 
@@ -47,7 +52,7 @@ class ContestsController < ApplicationController
     end
 
     def contest_params
-      params.require(:contest).permit(:title,:image,:description, :contest_end,:voting_end)
+      params.require(:contest).permit(:title,:image,:description, :contest_end,:voting_end, :code)
     end
 
     def find_contest
