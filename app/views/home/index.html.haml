@@ -24,6 +24,12 @@
             .contest-title
               .topic
                 =contest.title
+              .badge
+                -if (contest.contest_end.to_date-Time.now.to_date).to_i < 0
+                  contest closed
+                -else
+                  =(contest.contest_end.to_date-Time.now.to_date).to_i
+                  days left
             %hr
             .contest-image
               =image_tag contest.image, size:"300"
@@ -64,6 +70,12 @@
             .contest-title
               .text-center
                 %h3=contest.title
+                .badge
+                  -if (contest.contest_end.to_date-Time.now.to_date).to_i < 0
+                    contest closed
+                  -else
+                    =(contest.contest_end.to_date-Time.now.to_date).to_i
+                    days left
         .modal-body
           .contest-image
             .text-center

@@ -11,6 +11,12 @@
           .contest-title
             .topic
               =contest.title
+            .badge
+              -if (contest.contest_end.to_date-Time.now.to_date).to_i < 0
+                contest closed
+              -else
+                =(contest.contest_end.to_date-Time.now.to_date).to_i
+                days left
           .contest-image
             %hr
             =image_tag contest.image, size:"300"

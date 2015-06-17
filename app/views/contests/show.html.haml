@@ -2,7 +2,13 @@
   .text-center
     %h2=@contest.title
     %p=image_tag @contest.image, size:'600'
-    = @contest.description
+    .badge
+      -if (@contest.contest_end.to_date-Time.now.to_date).to_i < 0
+        contest closed
+      -else
+        =(@contest.contest_end.to_date-Time.now.to_date).to_i
+        days left
+    %p=@contest.description
 
   %hr
   %p
@@ -28,13 +34,8 @@
             %audio{:controls => ""}
               %source{:src => music.audio.url, :type => "audio/mpeg"}
     -if @contest.code != ''
-      -@promo='1'
       Insert promo-code here:
-
       %input#promo{:type => "text"}
-      %span#hidenForm
-        sdad
-      =@promo
     -else
       =render 'musics/form'
 
