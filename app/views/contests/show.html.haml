@@ -37,7 +37,12 @@
       Insert promo-code here:
       %input#promo{:type => "text"}
     -else
-      =render 'musics/form'
+      -if Time.now>@contest.contest_end
+        Contest closed
+      -elsif @musics.where(user_id: current_user.id)!=0
+        You take a part already
+      -else
+        =render 'musics/form'
 
 =link_to "back", root_path
 =link_to "Delete", contest_path, method: :delete
