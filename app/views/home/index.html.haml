@@ -50,7 +50,7 @@
           %h3.title
             = link_to post.title_blog, post
           .post-annotation
-            = post.content_blog
+            = post.content_blog.html_safe
           %hr
           %p.post-date
             Published at:

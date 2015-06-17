@@ -4,11 +4,7 @@ class MusicsController < ApplicationController
   
 
   def new
-    if Time.now.day >@contest.contest_end.day
-      redirect_to root_path
-    else
       @music = Music.new
-    end
   end
 
   def create
@@ -36,6 +32,7 @@ class MusicsController < ApplicationController
   end
 
   def destroy
+    admin_validation
     @music = @contest.musics.find(params[:id])
     @music.destroy
     redirect_to contest_path(@contest)
@@ -72,4 +69,10 @@ class MusicsController < ApplicationController
     def load_contest
       @contest = Contest.find(params[:contest_id])
     end
+
+  def admin_validation
+    if current_user.role !='administrator'
+      redirect_to root_path
+    end
+  end
 end

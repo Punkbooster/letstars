@@ -33,16 +33,20 @@
               = music.score
             %audio{:controls => ""}
               %source{:src => music.audio.url, :type => "audio/mpeg"}
-    -if @contest.code != ''
-      Insert promo-code here:
-      %input#promo{:type => "text"}
-    -else
-      -if Time.now>@contest.contest_end
-        Contest closed
-      -elsif @musics.where(user_id: current_user.id)!=0
-        You take a part already
+            -if user_signed_in?
+              -if current_user.role ='administrator'
+                =link_to "delete track", contest_music_path(@contest,music), method: :delete
+    -if user_signed_in?
+      -if @contest.code != ''
+        Insert promo-code here:
+        %input#promo{:type => "text"}
       -else
-        =render 'musics/form'
+        -if Time.now>@contest.contest_end
+          Contest closed
+        -elsif @musics.where(user_id: current_user.id)!=0
+          You take a part already
+        -else
+          =render 'musics/form'
 
 =link_to "back", root_path
 =link_to "Delete", contest_path, method: :delete

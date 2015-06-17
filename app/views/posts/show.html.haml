@@ -12,7 +12,7 @@
             | #{link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'}}
       %p.body
         = image_tag @post.image, size:'300x300'
-        = @post.content_blog
+        = @post.content_blog.html_safe
 
       #comments
         %h3
