@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   	contest.musics.each do |music|
   		if self.voted_for?(music)
   			return false
+      elsif Date.today>contest.contest_end
+        return false
 		end
   	end
 

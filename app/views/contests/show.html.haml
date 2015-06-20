@@ -22,10 +22,12 @@
           %source{:src => music.audio.url, :type => "audio/mpeg"}
         = link_to music.user.profile.name, music.user.profile
         = music.audio_file_name.humanize.to(-5)
-        = music.score
-        = 'Vote'.pluralize(music.score)
+        -if Date.today > @contest.contest_end
+          = music.score
+          = 'Vote'.pluralize(music.score)
         -if user_signed_in?
           -if current_user.can_vote?(@contest)
+
             = link_to "upvote", like_contest_music_path(@contest, music), method: :put
           - if current_user.role =='administrator'
             =link_to "delete track", contest_music_path(@contest,music), method: :delete
