@@ -18,24 +18,18 @@
     %ul
     - @musics.each do |music|
       %p
-        %tr
-          %td
-            -if user_signed_in?
-              - if !current_user.can_vote?(@contest)
-                = music.audio_file_name
-                = music.score
-              - else
-                = music.audio_file_name
-                = link_to "upvote", like_contest_music_path(@contest, music), method: :put
-                = music.score
-            - else
-              = music.audio_file_name
-              = music.score
-            %audio{:controls => ""}
-              %source{:src => music.audio.url, :type => "audio/mpeg"}
-            -if user_signed_in?
-              -if current_user.role ='administrator'
-                =link_to "delete track", contest_music_path(@contest,music), method: :delete
+        %audio{:controls => ""}
+          %source{:src => music.audio.url, :type => "audio/mpeg"}
+        = link_to music.user.profile.name, music.user.profile
+        = music.audio_file_name.humanize.to(-5)
+        = music.score
+        = 'Vote'.pluralize(music.score)
+        -if user_signed_in?
+          -if current_user.can_vote?(@contest)
+            = link_to "upvote", like_contest_music_path(@contest, music), method: :put
+          - if current_user.role =='administrator'
+            =link_to "delete track", contest_music_path(@contest,music), method: :delete
+
     -if user_signed_in?
       -if @contest.code != ''
         Insert promo-code here:
@@ -43,7 +37,7 @@
       -else
         -if Time.now>@contest.contest_end
           Contest closed
-        -elsif @musics.where(user_id: current_user.id)!=0
+        -elsif @musics.where(user_id: current_user.id).count!=0
           You take a part already
         -else
           =render 'musics/form'

@@ -1,6 +1,7 @@
 class MusicsController < ApplicationController
   before_action :set_music, only: [:show, :edit, :update, :destroy]
   before_action :load_contest
+  before_action :admin_validation,only:[:destroy]
   
 
   def new
@@ -32,7 +33,6 @@ class MusicsController < ApplicationController
   end
 
   def destroy
-    admin_validation
     @music = @contest.musics.find(params[:id])
     @music.destroy
     redirect_to contest_path(@contest)
