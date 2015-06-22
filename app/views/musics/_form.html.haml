@@ -1,5 +1,13 @@
 -if Time.now.day > @contest.contest_end.day
-  End of applying
+  .well
+    End of applying
 -else
-  = form_for([@contest, @music]) do |f|
-    Treck (mp3):#{f.file_field :audio}#{f.submit}
+  .well
+    =simple_form_for([@contest, @music]) do |f|
+      .text-center
+        .topic
+          Apply your track
+        =f.file_field :audio, input_html: { hidden: true },class:'btn btn-defaut'
+        =f.button :submit,class:'btn btn-default'
+
+
