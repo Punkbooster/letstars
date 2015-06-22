@@ -25,7 +25,7 @@
     %p
       .muslabel
         .muslabel_author
-          = link_to music.user.profile.name, music.user.profile
+          = link_to music.user.profile.name.truncate(13), music.user.profile
         .track
           %audio{:controls => ""}
             %source{:src => music.audio.url, :type => "audio/mpeg"}
@@ -47,14 +47,21 @@
   .well
     .text-center
       -if user_signed_in?
-        -if @contest.code != ''
-          Insert promo-code here:
-          %input#promo{:type => "text"}
+        -if @profiles.where(user_id: current_user.id).count == 0
+          =link_to 'create',new_profile_path
+          your profile first
         -else
-          -if Time.now>@contest.contest_end
-            Contest closed
-          -elsif @musics.where(user_id: current_user.id).count!=0
-            You take a part already
+          -if @contest.code != ''
+            Insert promo-code here:
+            %input#promo{:type => "text"}
           -else
-            =render 'musics/form'
+            -if Time.now>@contest.contest_end
+              Contest closed
+            -elsif @musics.where(user_id: current_user.id).count!=0
+              You take a part already
+            -else
+              =render 'musics/form'
+      -else
+        =link_to 'register', new_user_registration_path
+        first
 
