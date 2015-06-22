@@ -258,6 +258,60 @@ audio{
     }
   }
 }
+.muslabel {
+  clear:both;
+  padding-bottom:5px;
+  .muslabel_author {
+  width: 100px;
+  border: 1px solid #337AC1;
+  border-radius: 5px;
+  margin-right: 5px;
+  padding: 3px;
+  text-align: center;
+  float: left;
+  }
+  .track{
+    float:left;
+    margin-right: 5px;
+  }
+  .muslabel_track{
+  width: 400px;
+  border: 1px solid #337AC1;
+  border-radius: 5px;
+  margin-right: 5px;
+  padding: 3px;
+  text-align: center;
+  float: left;
+  }
+  .muslabel_vote{
+  width: 100px;
+  border: 1px solid #337AC1;
+  border-radius: 5px;
+  margin-right: 5px;
+  padding: 3px;
+  text-align: center;
+  float: left;
+  }
+  .muslabel_delete{
+  width: 100px;
+  border: 1px solid #337AC1;
+  border-radius: 5px;
+  margin-right: 5px;
+  padding: 3px;
+  text-align: center;
+  float:left;
+  }
+  .muslabel_score{
+    width: 100px;
+    border: 1px solid #337AC1;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 3px;
+    text-align: center;
+    float:left;
+  }
+}
+
 
 /*============================================= Arsen CSS */
 .well {

@@ -1,6 +1,7 @@
-.wrap
+.wrap{:style => "margin-top:100px"}
   .text-center
     %h2=@contest.title
+    %hr
     %p=image_tag @contest.image, size:'600'
     .badge
       -if (@contest.contest_end.to_date-Time.now.to_date).to_i < 0
@@ -8,30 +9,40 @@
       -else
         =(@contest.contest_end.to_date-Time.now.to_date).to_i
         days left
-    %p=@contest.description
+    %br/
+    %br/
+    %p
+      =@contest.description
 
   %hr
   %p
     = @contest.musics.count
     Tracks in contest
-  %p
-    %ul
-    - @musics.each do |music|
-      %p
-        %audio{:controls => ""}
-          %source{:src => music.audio.url, :type => "audio/mpeg"}
-        = link_to music.user.profile.name, music.user.profile
-        = music.audio_file_name.humanize.to(-5)
+  %br/
+  - @musics.each do |music|
+    %p
+      .muslabel
+        .muslabel_author
+          = link_to music.user.profile.name, music.user.profile
+        .track
+          %audio{:controls => ""}
+            %source{:src => music.audio.url, :type => "audio/mpeg"}
+        .muslabel_track
+          = music.audio_file_name.humanize.to(-5).truncate(50)
         -if Date.today > @contest.contest_end
-          = music.score
-          = 'Vote'.pluralize(music.score)
+          .muslabel_score
+            = music.score
+            = 'Vote'.pluralize(music.score)
         -if user_signed_in?
           -if current_user.can_vote?(@contest)
-
-            = link_to "upvote", like_contest_music_path(@contest, music), method: :put
+            .muslabel_vote
+              = link_to "", like_contest_music_path(@contest, music), method: :put,class:'glyphicon glyphicon-thumbs-up'
           - if current_user.role =='administrator'
-            =link_to "delete track", contest_music_path(@contest,music), method: :delete
-
+            .muslabel_delete
+              =link_to "delete track", contest_music_path(@contest,music), method: :delete
+  %br/
+  %hr
+  %p
     -if user_signed_in?
       -if @contest.code != ''
         Insert promo-code here:

@@ -18,8 +18,10 @@
     User songs:
   %br/
   -@musics.each do |music|
-    %audio{:controls => ""}
-      %source{:src => music.audio.url, :type => "audio/mpeg"}
-    = music.audio_file_name.humanize.to(-5)
+    .muslabel
+      %audio{:controls => ""}
+        %source{:src => music.audio.url, :type => "audio/mpeg"}
+      .muslabel_track
+        = music.audio_file_name.humanize.to(-5)
     %br/
   =link_to "Back", root_path
