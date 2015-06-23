@@ -316,6 +316,13 @@ audio{
   border-radius: .5em;
   border-radius:3px;
   margin-bottom:3em;
+  .post_image{
+    height:300px;
+    width: 300px;
+    float:left;
+    margin:10px;
+    padding-bottom: 10px;
+  }
   .title {
       border-bottom: 1px solid #e3e3e3;
       color: #397CAC;
@@ -336,6 +343,7 @@ audio{
       padding-top: 0.4em;
     }
     #comments {
+      clear: both;
       h3 {
         padding-bottom: 1em;
         padding-top:2em;
