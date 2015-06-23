@@ -21,9 +21,15 @@
   margin:0;
   padding:0;
 }
-html,body{
+html{
+  position: relative;
+  min-height: 100%;
+}
+body{
+  margin-top:60px;
   background: #EDEFF0;
   font-family: sans-serif;
+  margin-bottom: 500px;
 }
 hr{
   border-color: #CED0D7 -moz-use-text-color -moz-use-text-color;
@@ -42,11 +48,9 @@ audio{
   font-size: large;
   width:100%;
   height:60px;
-  background-color:#ffffff;
   box-shadow:0 0 5px grey;
   background-color:white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background: none repeat scroll 0 0 rgba(255, 255, 255, 1);
   a{
     color:#333333;
     &:hover{
@@ -56,7 +60,6 @@ audio{
   }
 }
 .header{
-  margin-top:60px;
   width: auto;
   height:550px;
   background:url('/assets/BannerAu5.0.gif') no-repeat;
@@ -86,77 +89,49 @@ audio{
 
   }
 }
-.bottomMenu {
-  display: none;
-  position: block;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  border-top: 1px solid #000;
-  background: red;
-  z-index: 1;
+.contest-title{
+  height:60px;
+  text-align: center;
+  .topic {
+    text-align: center;
+    margin-bottom: 0;
+  }
 }
-.wrap{
-  margin:auto;
-  margin-top:60px;
-  width:80%;
-  height: auto;
+.contests {
+  display:flex;
+  flex-flow: row wrap;
   .contest {
     float: left;
-    margin: 30px;
-    height: 500px;
     width: 300px;
-    .btn{
+    margin: auto;
+    .btn {
       font-family: 'Roboto', sans-serif;
       font-weight: 100;
     }
-    .contest-title{
-      height:60px;
-      text-align: center;
-      .topic {
-        text-align: center;
-        margin-bottom: 0;
-      }
-    }
-    hr{
-      margin-top:0;
-    }
-  }
-  .text-center{
-    .topic{
-      margin:1em;
-      text-align: center;
-      clear:both;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 300;
-      font-size: 20px;
-      .btn{
-        font-weight: 100;
-        font-size: 20px;
-      }
-    }
   }
 }
-.contests{
-  display: none;
+.topic {
+  margin: 1em;
+  text-align: center;
   clear: both;
-  display: inline-block;
-  margin: auto;
-  width: 100%;
-  .contest{
-    float:left;
-    width:300px;
-    margin:26px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  .btn {
+    font-weight: 100;
+    font-size: 20px;
   }
 }
+
 .page-buffer{
   margin-bottom: 1%;
   height:50px;
 }
 .footer{
-  margin-top: 0;
+  position: absolute;
+  bottom: 0;
   color:#ffffff;
-  height:440px;
+  height:500px;
   width:100%;
   background-color: cadetblue;
   .site-info{
@@ -208,6 +183,10 @@ audio{
       }
     }
   }
+}
+.content{
+  padding-top: 30px;
+  padding-bottom: 520px;
 }
 .post {
   padding:1em 5%;
@@ -263,7 +242,7 @@ audio{
   padding-bottom:5px;
   .muslabel_author {
   width: 100px;
-  border: 1px solid #337AC1;
+  border: 1px solid cadetblue;
   border-radius: 5px;
   margin-right: 5px;
   padding: 3px;
@@ -276,7 +255,7 @@ audio{
   }
   .muslabel_track{
   width: 400px;
-  border: 1px solid #337AC1;
+  border: 1px solid cadetblue;
   border-radius: 5px;
   margin-right: 5px;
   padding: 3px;
@@ -285,7 +264,7 @@ audio{
   }
   .muslabel_vote{
   width: 100px;
-  border: 1px solid #337AC1;
+  border: 1px solid cadetblue;
   border-radius: 5px;
   margin-right: 5px;
   padding: 3px;
@@ -294,7 +273,7 @@ audio{
   }
   .muslabel_delete{
   width: 100px;
-  border: 1px solid #337AC1;
+  border: 1px solid cadetblue;
   border-radius: 5px;
   margin-right: 5px;
   padding: 3px;
@@ -303,7 +282,7 @@ audio{
   }
   .muslabel_score{
     width: 100px;
-    border: 1px solid #337AC1;
+    border: 1px solid cadetblue;
     border-radius: 5px;
     margin-right: 5px;
     padding: 3px;
@@ -311,7 +290,16 @@ audio{
     float:left;
   }
 }
-
+.bottomMenu {
+  display: none;
+  position: block;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #000;
+  background: red;
+  z-index: 1;
+}
 
 /*============================================= Arsen CSS */
 .well {
@@ -326,7 +314,6 @@ audio{
   background: white;
   padding: 2em 5%;
   border-radius: .5em;
-  margin-top: 6em;
   border-radius:3px;
   margin-bottom:3em;
   .title {
