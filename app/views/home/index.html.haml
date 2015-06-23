@@ -44,7 +44,7 @@
           %h3.title
             = link_to post.title_blog, post
           .post-annotation
-            = post.content_blog.html_safe
+            = post.content_blog.truncate(140).html_safe
           %hr
           .pull-left
             .glyphicon.glyphicon-comment

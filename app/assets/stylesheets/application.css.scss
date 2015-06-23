@@ -16,7 +16,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300);
 *{
   margin:0;
   padding:0;
@@ -65,7 +65,7 @@ audio{
 .header{
   width: auto;
   height:550px;
-  background:url('/assets/BannerAu5.0.gif') no-repeat;
+  background:asset_url('BannerAu5.0.gif') no-repeat;
   background-size: 100%;
   .logo{
     width:300px;

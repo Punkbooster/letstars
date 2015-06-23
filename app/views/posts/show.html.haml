@@ -24,8 +24,9 @@
           %h2 Reply to thread
           -if user_signed_in?
             -if @profiles.where(user_id: current_user.id).count == 0
-              =link_to 'create',new_profile_path
-              your profile first
+              .well
+                =link_to 'create',new_profile_path
+                your profile first
             -else
               = render "comments/form"
 
