@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'tinymce-rails'
-gem 'devise', '~> 3.4.1'
+gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'carrierwave', '~> 0.10.0'
