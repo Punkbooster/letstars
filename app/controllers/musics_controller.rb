@@ -70,7 +70,6 @@ class MusicsController < ApplicationController
       @contest = Contest.find(params[:contest_id])
     end
 
-
   def admin_validation
     if current_user.role !='administrator'
       redirect_to root_path

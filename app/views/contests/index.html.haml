@@ -1,5 +1,4 @@
 .header
-
   .logo
     .text-center
       %b
@@ -9,7 +8,6 @@
 .col-lg-1
 .col-lg-10
   .content
-
     .text-center
       .topic
         All contests
@@ -26,7 +24,6 @@
               -else
                 =(contest.contest_end.to_date-Time.now.to_date).to_i
                 days left
->>>>>>> origin/Meditate-master
           .contest-image
             %hr
             =image_tag contest.image, size:"300"

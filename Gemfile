@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'tinymce-rails'
-
+gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'carrierwave', '~> 0.10.0'
@@ -19,18 +19,12 @@ gem 'haml'
 gem 'paperclip'
 gem 'acts_as_votable', '~> 0.10.0'
 
-
-gem 'will_paginate-bootstrap'
-gem 'will_paginate' 
-
-
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-
 group :production do
   gem 'pg'
   gem 'rails_12factor'

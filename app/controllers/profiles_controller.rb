@@ -43,7 +43,6 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-
     @profile.destroy
     redirect_to root_path
   end

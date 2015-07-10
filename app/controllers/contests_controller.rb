@@ -20,7 +20,6 @@ class ContestsController < ApplicationController
   end
 
   def show
-
     @profiles=Profile.all
     @musics = @contest.musics
     @music = Music.new
