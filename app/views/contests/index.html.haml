@@ -1,16 +1,32 @@
 .header
-.contests
-  .wrap
+
+  .logo
+    .text-center
+      %b
+        %h1 Letstars
+    %i
+      %span.logo-text show your talent
+.col-lg-1
+.col-lg-10
+  .content
+
     .text-center
       .topic
         All contests
     %hr
-    .text-center
+    .contests
       -@contests.each do |contest|
         .contest
           .contest-title
             .topic
-              =contest.title
+              =contest.title.truncate(29)
+            .badge
+              -if (contest.contest_end.to_date-Time.now.to_date).to_i < 0
+                contest closed
+              -else
+                =(contest.contest_end.to_date-Time.now.to_date).to_i
+                days left
+>>>>>>> origin/Meditate-master
           .contest-image
             %hr
             =image_tag contest.image, size:"300"

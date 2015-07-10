@@ -1,6 +1,16 @@
 #comment_content
   %p= comment.comment
   %p= comment.user_id
+=======
+  .pull-left
+    .comment_author
+      %p
+        Posted by
+        = link_to comment.user.profile.name, comment.user.profile
+        | about
+        =time_ago_in_words(comment.created_at)
+        ago
+>>>>>>> origin/Meditate-master
   -if user_signed_in?
     -if current_user.role=='administrator'
       .buttons

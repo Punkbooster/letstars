@@ -1,10 +1,15 @@
-.wrap
-  =simple_form_for(@contest) do |f|
-    =f.input :title
-    =f.input :image
-    =f.input :description
-    =f.date_select :contest_end
-    =f.date_select :voting_end
-    =f.input :code
 
-    =f.button :submit
+.wrap
+.col-lg-1
+.col-lg-10
+  .content
+    =simple_form_for(@contest) do |f|
+      =f.input :title
+      =f.input :image
+      =f.input :description
+      =f.date_select :contest_end
+      =f.date_select :voting_end
+      =f.input :code
+
+      =f.button :submit
+

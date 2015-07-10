@@ -10,5 +10,11 @@
             %h1.title
               = link_to post.title_blog, post
             %p.date
-              Published at:
-              =time_ago_in_words(post.created_at)
+              .pull-left
+                .glyphicon.glyphicon-comment
+                =post.comments.count
+                ='comment'.pluralize(post.comments.count)
+              .pull-right
+                Published at:
+                =time_ago_in_words(post.created_at)
+

@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :find_profile, only: [:show,:update,:edit,:destroy]
   before_action :authenticate_user!
+  before_action :admin_validation, only: [:destroy]
+
   def new
     if Profile.where(user_id: current_user.id).count == 0
       @profile=Profile.new
@@ -42,6 +44,8 @@ class ProfilesController < ApplicationController
 
   def destroy
 
+    @profile.destroy
+    redirect_to root_path
   end
 
   private
@@ -54,5 +58,10 @@ class ProfilesController < ApplicationController
       @profile=Profile.find(params[:id])
     end
 
+    def admin_validation
+      if current_user.role !='administrator'
+        redirect_to root_path
+      end
+    end
 
 end
