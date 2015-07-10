@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'tinymce-rails'
-gem 'devise'
+
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'carrierwave', '~> 0.10.0'
@@ -22,7 +22,6 @@ gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'will_paginate-bootstrap'
 gem 'will_paginate' 
-
 
 
 group :development, :test do
