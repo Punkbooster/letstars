@@ -1,0 +1,11 @@
+-if Time.now.day > @contest.contest_end.day
+  End of applying
+-else
+  =simple_form_for([@contest, @music]) do |f|
+    .text-center
+      .topic
+        Apply your track
+      =f.file_field :audio, input_html: { hidden: true },class:'btn btn-defaut'
+      =f.button :submit,class:'btn btn-default'
+
+

@@ -1,0 +1,6 @@
+.content
+	= @music.audio_file_name
+
+.buttons	
+	= link_to "Edit", edit_contest_music_path(music.contest, music)
+	= link_to "Delete", [music.contest, music], method: :delete, data: {confirm: "Are you sure?"}

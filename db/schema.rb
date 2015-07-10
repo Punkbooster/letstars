@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426074615) do
+ActiveRecord::Schema.define(version: 20150623204939) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
@@ -28,19 +28,49 @@ ActiveRecord::Schema.define(version: 20150426074615) do
     t.string   "image"
     t.string   "title"
     t.text     "description"
-    t.integer  "track_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.datetime "contest_end"
+    t.datetime "voting_end"
+    t.string   "code"
   end
 
-  add_index "contests", ["track_id"], name: "index_contests_on_track_id"
+  create_table "musics", force: :cascade do |t|
+    t.string   "audio"
+    t.integer  "contest_id"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
+  end
+
+  add_index "musics", ["contest_id"], name: "index_musics_on_contest_id"
+  add_index "musics", ["user_id"], name: "index_musics_on_user_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title_blog"
     t.text     "content_blog"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "image"
   end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "surname"
+    t.string   "band"
+    t.string   "role"
+    t.text     "about"
+    t.string   "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -55,9 +85,25 @@ ActiveRecord::Schema.define(version: 20150426074615) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
 
 end

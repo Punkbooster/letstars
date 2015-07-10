@@ -1,0 +1,89 @@
+!!!
+%html
+  %head
+    %title
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-default
+      .container-fluid
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "#"} Brand
+        / Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            -if !user_signed_in?
+              %li
+                =link_to 'Home', root_path
+              %li
+                =link_to 'Log in', new_user_session_path
+              %li
+                =link_to 'Register', new_user_registration_path
+            -else
+              %li
+                =link_to 'Home', root_path
+              -if current_user.profile
+                %li
+                  =link_to 'My profile', profile_path(current_user.profile)
+                %li
+                  =link_to 'log out', destroy_user_session_path, method: :delete
+              -else
+                %li
+                  =link_to 'New Profile', new_profile_path
+                %li
+                  =link_to 'log out', destroy_user_session_path, method: :delete
+              -if current_user.role == 'administrator'
+                %li
+                  =link_to 'New contest', new_contest_path
+                %li
+                  =link_to 'New post', new_post_path
+    =yield
+
+    .footer
+      .site-info
+        .footer-sitemap
+          .col
+            .sitemap-heading
+              %h4 Product
+            .sitemap-list
+              %ul
+                %li=link_to 'Home', root_path
+                %li=link_to 'Contests', contests_path
+                %li=link_to 'Blog', posts_path
+          .col
+            .sitemap-heading
+              %h4 Company
+            .sitemap-list
+              %ul
+                %li=link_to 'About', about_path
+                %li=link_to 'Contact', contact_path
+          .col
+            %h4 Letstars
+            All rights reserved 2015
+            %br
+            Letstars.inc
+        .footer-company-description
+          Here you can show your talent, express yourself and share your thoughts, take part in various music contests and in consequence gain fame and win prizes.
+        .footer-subcontent
+          %ul
+            %li
+              dont forget to follow us
+            %li
+              .social
+                =link_to((image_tag 'instagram.svg'),'http://www.wsd.com')
+            %li
+              .social
+                =link_to((image_tag 'facebook.svg'),'http://www.wsd.com')
+            %li
+              .social
+                =link_to((image_tag 'twitter.svg'),'https://twitter.com/letstarscom')
+            %li
+              .social
+                =link_to((image_tag 'youtube.svg'),'https://www.youtube.com/channel/UC8wT5JRkW7FGywTfkgYemIg')

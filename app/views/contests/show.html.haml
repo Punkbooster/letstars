@@ -1,0 +1,69 @@
+.col-lg-1
+.col-lg-10
+  .content
+    .text-center
+      %h2=@contest.title
+      %hr
+      %p=image_tag @contest.image, size:'600'
+      .badge
+        -if (@contest.contest_end.to_date-Time.now.to_date).to_i < 0
+          contest closed
+        -else
+          =(@contest.contest_end.to_date-Time.now.to_date).to_i
+          days left
+      %br/
+      %br/
+      %p
+        =@contest.description
+      -if user_signed_in?
+        -if current_user.role=='administrator'
+          =link_to "Delete contest", contest_path, method: :delete, class:'btn btn-default'
+    %hr
+    %p
+      = @contest.musics.count
+      Tracks in contest
+    %br/
+    - @musics.each do |music|
+      %p
+        .muslabel
+          .muslabel_author
+            = link_to music.user.profile.name.truncate(13), music.user.profile
+          .track
+            %audio{:controls => ""}
+              %source{:src => music.audio.url, :type => "audio/mpeg"}
+          .muslabel_track
+            = music.audio_file_name.humanize.to(-5).truncate(50)
+          -if Date.today > @contest.contest_end
+            .muslabel_score
+              = music.score
+              = 'Vote'.pluralize(music.score)
+          -if user_signed_in?
+            -if current_user.can_vote?(@contest)
+              .muslabel_vote
+                = link_to "", like_contest_music_path(@contest, music), method: :put,class:'glyphicon glyphicon-thumbs-up'
+            - if current_user.role =='administrator'
+              .muslabel_delete
+                =link_to "delete track", contest_music_path(@contest,music), method: :delete
+    %br/
+    %hr
+    .well
+      .text-center
+        -if user_signed_in?
+          -if @profiles.where(user_id: current_user.id).count == 0
+            =link_to 'create',new_profile_path
+            your profile first
+          -else
+            -if @contest.code != ''
+              Insert promo-code here:
+              %input#promo{:type => "text"}
+            -else
+              -if Time.now>@contest.contest_end
+                Contest closed
+              -elsif @musics.where(user_id: current_user.id).count!=0
+                You take a part already
+              -else
+                =render 'musics/form'
+        -else
+          =link_to 'register', new_user_registration_path
+          first, for voting and applying tracks
+

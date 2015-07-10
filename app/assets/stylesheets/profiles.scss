@@ -1,0 +1,15 @@
+// Place all the styles related to the profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.header-photo{
+  position:relative;
+  width:300px;
+  height:300px;
+  top:30%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  img{
+    border-radius:100%;
+  }
+  color:white;
+}

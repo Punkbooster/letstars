@@ -1,7 +1,30 @@
-%h1 Halo
--@contests.each do |contest|
-  =contest.title
-  =image_tag contest.image
-  =contest.description
-  %br/
-=link_to 'new', new_contest_path
+.header
+  .logo
+    .text-center
+      %b
+        %h1 Letstars
+    %i
+      %span.logo-text show your talent
+.col-lg-1
+.col-lg-10
+  .content
+    .text-center
+      .topic
+        All contests
+    %hr
+    .contests
+      -@contests.each do |contest|
+        .contest
+          .contest-title
+            .topic
+              =contest.title.truncate(29)
+            .badge
+              -if (contest.contest_end.to_date-Time.now.to_date).to_i < 0
+                contest closed
+              -else
+                =(contest.contest_end.to_date-Time.now.to_date).to_i
+                days left
+          .contest-image
+            %hr
+            =image_tag contest.image, size:"300"
+          =button_to "Take a part", contest, method: :get , class: 'btn btn-default btn-lg btn-block'

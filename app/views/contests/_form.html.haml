@@ -1,6 +1,20 @@
-=simple_form_for(@contest) do |f|
-  =f.input :title
-  =f.input :image
-  =f.input :description
+.col-lg-1
+.col-lg-10
+  .content
+    =simple_form_for(@contest) do |f|
+      =f.input :title
+      =f.input :image
+      =f.input :description
+      %p Contest ends:
+      %p=f.date_select :contest_end
+      %p Voting ends:
+      %p=f.date_select :voting_end
+      %p=f.input :code
+      =f.button :submit
 
-  =f.button :submit
+    %hr
+    When date.today == @contest.contest_end , user wont be able to apply their tracks
+    %br/
+    When date.today ==@contest.contest_end, user will have the possibility to voting for tracks.
+    %br/
+    When date.today ==@contest.voting.end, user wont be able to vote for tracks

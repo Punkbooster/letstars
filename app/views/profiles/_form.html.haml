@@ -1,0 +1,13 @@
+.col-lg-1
+.col-lg-10
+  .content
+    =simple_form_for(@profile) do |f|
+
+      =f.input :name
+      =f.input :surname
+      =f.input :band
+      =f.input :role
+      =f.input :about
+      =f.input :photo
+
+      =f.button :submit
