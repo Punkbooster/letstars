@@ -27,7 +27,7 @@ html{
 }
 body{
   margin-top:60px;
-  background: #EDEFF0;
+  background: #FFFFFF;
   font-family: sans-serif;
   margin-bottom: 500px;
 }
@@ -44,18 +44,40 @@ audio{
   z-index: 2;
   border-radius: 0px;
   position:fixed;
-  padding-top: 0.3em;
+
   font-size: large;
   width:100%;
-  height:60px;
+  height:70px;
   box-shadow:0 0 5px grey;
   background-color:white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  
+  .navbar-nav {
+    float:right;
+    padding-top:13px;
+    a {
+      margin-left: 30px;
+      padding: 15px 0;
+    }
+  }
+  i {
+    font-size: 4.5rem;
+    padding-top: 12px;
+    padding-left:10px;
+    color: #4c5650;
+  }
+
   a{
-    color:#333333;
+    color: #4c5650 !important;
+    font-family: "brandon-grotesque",sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1 !important;
+    text-transform: uppercase;
     &:hover{
-      text-decoration: none;
-      color:lavender;
+      border-bottom: 3px solid #33CD99;
+      color: #33CD99 !important;
+      padding-bottom: 0.5rem;
     }
   }
   .container-fluid{
