@@ -88,11 +88,11 @@ audio{
 }
 .header{
   width: auto;
-  height: 576px;
+  height: 476px;
   margin: 0 0 0;
-  max-height: 676px;
+  max-height: 476px;
   background:asset_url('Banner_3.0.gif') no-repeat;
-  background-size: 100%;
+  background-size: cover;
   .logo{
     width:300px;
     height:170px;
@@ -120,17 +120,22 @@ audio{
 }
 
 .contest-title{
-    height: 60px;
-    margin-top: -65%;
-    padding-bottom: 60.5%;
+    height: auto;
+    margin-top: -75%;
+    padding-bottom: 0%;
     position: relative;
     text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    max-width: 100%;
+    width: 100%;
       .topic {
         text-align: center;
         margin-bottom: 0;
         color:white;
+        padding-top:0%;
       }
 }
+
 .contests {
   display:flex;
   flex-flow: row wrap;
@@ -145,16 +150,17 @@ audio{
     .btn {
       font-family: 'Roboto', sans-serif;
       font-weight: 100;
+      padding-top: 50%;
     }
   }
 }
 .topic {
-  margin: 1em;
-  text-align: center;
-  clear: both;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
+    clear: both;
+    font-family: "Roboto",sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    margin: 2.5em;
+    text-align: center;
   .btn {
     font-weight: 100;
     font-size: 20px;

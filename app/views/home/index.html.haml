@@ -6,10 +6,12 @@
     %i
       %span.logo-text show your talent
 
+.text-center
+  .topic
+    Latest contests:
+
 .row
   .text-center
-    .topic
-      Latest contests:
     .contests
       -@contests.each do |contest|
         -@modalName = '#myModal' + contest.id.to_s
