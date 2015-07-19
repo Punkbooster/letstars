@@ -7,16 +7,15 @@
       %span.logo-text show your talent
 
 .row
-  .col-lg-1
-  .col-lg-10
-    .text-center
-      .topic
-        Latest contests:
-      %hr
-      .contests
-        -@contests.each do |contest|
-          -@modalName = '#myModal' + contest.id.to_s
-          .contest
+  .text-center
+    .topic
+      Latest contests:
+    .contests
+      -@contests.each do |contest|
+        -@modalName = '#myModal' + contest.id.to_s
+        .contest
+          .contest-image
+            =image_tag contest.image, width:"100%"
             .contest-title
               .topic
                 =contest.title.truncate(29)
@@ -26,15 +25,14 @@
                 -else
                   =(contest.contest_end.to_date-Time.now.to_date).to_i
                   days left
-            %hr
-            .contest-image
-              =image_tag contest.image, width:"100%"
-            %button.btn.btn-default.btn-lg.btn-block{"data-target" => @modalName, "data-toggle" => "modal", :type => "button"}
-              More
-    .text-center
-      .topic
-        %p=link_to 'View all contests', contests_path, class:'btn btn-default'
+          %button.btn.btn-default.btn-lg.btn-block{"data-target" => @modalName, "data-toggle" => "modal", :type => "button"}
+            More
+  .text-center
+    .topic
+      %p=link_to 'View all contests', contests_path, class:'btn btn-default'
 
+  .col-lg-1
+  .col-lg-10
     .text-center
       .topic
         Latest news
