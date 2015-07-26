@@ -77,8 +77,8 @@ audio{
     line-height: 1 !important;
     text-transform: uppercase;
     &:hover{
-      border-bottom: 3px solid #33CD99;
-      color: #33CD99 !important;
+      border-bottom: 3px solid #A56C65;
+      color: #A56C65 !important;
       padding-bottom: 0.5rem;
     }
   }
@@ -151,12 +151,13 @@ audio{
         margin:0px 3px;
       }
     .btn {
-      font-family: 'Roboto', sans-serif;
-      background: none;
-      font-weight: 500;
-      padding-top: 0%;
-      color:white;
-      border:none;
+      background: none repeat scroll 0 0 #33cd99;
+      border: medium none;
+      border-radius: 2rem;
+      outline: medium none;
+      padding: 1rem 3.5rem;
+      width:35%;
+      margin-left:33.33%;
     }
   }
 }
