@@ -21,9 +21,15 @@
   margin:0;
   padding:0;
 }
-html,body{
-  background: #EDEFF0;
+html{
+  position: relative;
+  min-height: 100%;
+}
+body{
+  margin-top:60px;
+  background: #FFFFFF;
   font-family: sans-serif;
+  margin-bottom: 500px;
 }
 hr{
   border-color: #CED0D7 -moz-use-text-color -moz-use-text-color;
@@ -38,27 +44,55 @@ audio{
   z-index: 2;
   border-radius: 0px;
   position:fixed;
-  padding: 1em;
+
   font-size: large;
   width:100%;
-  height:60px;
+  height: 3.4em;
   box-shadow:0 0 5px grey;
+  background-color:white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.95);
-  a{
-    color:#333333;
-    &:hover{
-      text-decoration: none;
-      color:lavender;
+  padding: 1rem;
+  
+  .navbar-nav {
+    float:right;
+    padding-top:0;
+
+    a {
+      margin-left: 30px;
+      padding: 15px 0;
     }
+  }
+  i {
+    font-size: 4.5rem;
+    padding-top: 0;
+    padding-left:10px;
+    color: #515153;
+  }
+
+  a{
+    color: #4c5650 !important;
+    font-family: "brandon-grotesque",sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1 !important;
+    text-transform: uppercase;
+    &:hover{
+      border-bottom: 3px solid #33CD99;
+      color: #33CD99 !important;
+      padding-bottom: 0.5rem;
+    }
+  }
+  .container-fluid{
+    background-color: #ffffff;
   }
 }
 .header{
-  margin-top:60px;
   width: auto;
-  height:550px;
-  background:url('/assets/BannerAu5.0.gif') no-repeat;
-  background-size: 100%;
+  height: 476px;
+  margin: 0 0 0;
+  max-height: 476px;
+  background:asset_url('Banner_3.0.gif') no-repeat;
+  background-size: cover;
   .logo{
     width:300px;
     height:170px;
@@ -84,77 +118,64 @@ audio{
 
   }
 }
-.bottomMenu {
-  display: none;
-  position: block;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  border-top: 1px solid #000;
-  background: red;
-  z-index: 1;
-}
-.wrap{
-  margin:auto;
-  margin-top:60px;
-  width:80%;
-  height: auto;
-  .contest {
-    float: left;
-    margin: 30px;
-    height: 500px;
-    width: 300px;
-    .btn{
-      font-family: 'Roboto', sans-serif;
-      font-weight: 100;
-    }
-    .contest-title{
-      height:60px;
-      text-align: center;
+
+.contest-title{
+    height: auto;
+    margin-top: -75%;
+    padding-bottom: 0%;
+    position: relative;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    max-width: 100%;
+    width: 100%;
       .topic {
         text-align: center;
         margin-bottom: 0;
+        color:white;
+        padding-top:0%;
       }
-    }
-    hr{
-      margin-top:0;
-    }
-  }
-  .text-center{
-    .topic{
-      margin:1em;
-      text-align: center;
-      clear:both;
+}
+
+.contests {
+  display:flex;
+  flex-flow: row wrap;
+  .contest {
+    float: center;
+    width: 33%;
+    margin: 0;
+      .contest-image {
+        max-width: 100%;
+        height: auto;
+      }
+    .btn {
       font-family: 'Roboto', sans-serif;
-      font-weight: 300;
-      font-size: 20px;
-      .btn{
-        font-weight: 100;
-        font-size: 20px;
-      }
+      font-weight: 100;
+      padding-top: 50%;
     }
   }
 }
-.contests{
-  display: none;
-  clear: both;
-  display: inline-block;
-  margin: auto;
-  width: 100%;
-  .contest{
-    float:left;
-    width:300px;
-    margin:26px;
+.topic {
+    clear: both;
+    font-family: "Roboto",sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    margin: 2.5em;
+    text-align: center;
+  .btn {
+    font-weight: 100;
+    font-size: 20px;
   }
 }
+
 .page-buffer{
   margin-bottom: 1%;
   height:50px;
 }
 .footer{
-  margin-top: 0;
+  position: absolute;
+  bottom: 0;
   color:#ffffff;
-  height:440px;
+  height:500px;
   width:100%;
   background-color: cadetblue;
   .site-info{
@@ -206,6 +227,10 @@ audio{
       }
     }
   }
+}
+.content{
+  padding-top: 30px;
+  padding-bottom: 520px;
 }
 .post {
   padding:1em 5%;
@@ -333,9 +358,15 @@ audio{
   background: white;
   padding: 2em 5%;
   border-radius: .5em;
-  margin-top: 6em;
   border-radius:3px;
   margin-bottom:3em;
+  .post_image{
+    height:300px;
+    width: 300px;
+    float:left;
+    margin:10px;
+    padding-bottom: 10px;
+  }
   .title {
       border-bottom: 1px solid #e3e3e3;
       color: #397CAC;
@@ -356,6 +387,7 @@ audio{
       padding-top: 0.4em;
     }
     #comments {
+      clear: both;
       h3 {
         padding-bottom: 1em;
         padding-top:2em;
