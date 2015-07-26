@@ -4,6 +4,7 @@
     %title
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %link{:rel => "stylesheet", :href => "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" }/
     = csrf_meta_tags
   %body
     %nav.navbar.navbar-default
@@ -15,7 +16,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} Brand
+          %i.fa.fa-star-half-o Letstars
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
