@@ -6,35 +6,35 @@
     %i
       %span.logo-text show your talent
 
-.bottomMenu
-  Some content of bottom
+.text-center
+  .topic
+    Latest contests:
 
-.contests
-  .wrap
-    .text-center
-      .appearing-contest
-        .topic
-          Latest contests:
-      %hr
-    .text-center
-      .appearing-contest
-        -@contests.each do |contest|
-          -@modalName = '#myModal' + contest.id.to_s
-          .contest
+.row
+  .text-center
+    .contests
+      -@contests.each do |contest|
+        -@modalName = '#myModal' + contest.id.to_s
+        .contest
+          .contest-image
+            =image_tag contest.image, width:"100%"
             .contest-title
               .topic
-                =contest.title
-            %hr
-            .contest-image
-              =image_tag contest.image, size:"300"
-            %button.btn.btn-default.btn-lg.btn-block{"data-target" => @modalName, "data-toggle" => "modal", :type => "button"}
-              More
-    .text-center
-      .appearing-contest
-        .topic
-          %p=link_to 'View all contests', contests_path, class:'btn btn-default'
-    %hr
-  .wrap
+                =contest.title.truncate(29)
+              .badge
+                -if (contest.contest_end.to_date-Time.now.to_date).to_i < 0
+                  contest closed
+                -else
+                  =(contest.contest_end.to_date-Time.now.to_date).to_i
+                  days left
+          %button.btn.btn-default.btn-lg.btn-block{"data-target" => @modalName, "data-toggle" => "modal", :type => "button"}
+            More
+  .text-center
+    .topic
+      %p=link_to 'View all contests', contests_path, class:'btn btn-default'
+
+  .col-lg-1
+  .col-lg-10
     .text-center
       .topic
         Latest news
@@ -44,9 +44,13 @@
           %h3.title
             = link_to post.title_blog, post
           .post-annotation
-            = post.content_blog
+            = post.content_blog.truncate(140).html_safe
           %hr
-          %p.post-date
+          .pull-left
+            .glyphicon.glyphicon-comment
+            =post.comments.count
+            ='comment'.pluralize(post.comments.count)
+          .post-date
             Published at:
             =time_ago_in_words(post.created_at)
     .text-center
@@ -64,6 +68,12 @@
             .contest-title
               .text-center
                 %h3=contest.title
+                .badge
+                  -if (contest.contest_end.to_date-Time.now.to_date).to_i < 0
+                    contest closed
+                  -else
+                    =(contest.contest_end.to_date-Time.now.to_date).to_i
+                    days left
         .modal-body
           .contest-image
             .text-center

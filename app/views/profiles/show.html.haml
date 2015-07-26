@@ -10,16 +10,19 @@
         =link_to 'Edit', edit_profile_path, class: 'btn btn-default', :style=>'width:100px; background-color:transparent; color:white'
       -else
 
-.wrap
-  .text-center
-    %p=@profile.about
-  %hr
-  .text-center
-    User songs:
-  %br/
-  -@musics.each do |music|
-    %audio{:controls => ""}
-      %source{:src => music.audio.url, :type => "audio/mpeg"}
-    = music.audio_file_name
+.col-lg-1
+.col-lg-10
+  .content
+    .text-center
+      %p=@profile.about
+    %hr
+    .text-center
+      User songs:
     %br/
-  =link_to "Back", root_path
+    -@musics.each do |music|
+      .muslabel
+        %audio{:controls => ""}
+          %source{:src => music.audio.url, :type => "audio/mpeg"}
+        .muslabel_track
+          = music.audio_file_name.humanize.to(-5)
+      %br/

@@ -1,18 +1,23 @@
-=simple_form_for(@post) do |f|
-  - if @post.errors.any?
-    #errors
-      %h2
-        = pluralize(@post.errors.count, "error")
-        prevented this post from saving
-      %ul
-        - @post.errors.full_messages.each do |msg|
-          %li
-            = msg
-  %p
-    = f.input :title_blog
-  %p
-    = f.input :content_blog
-  %p
-    =f.input :image
-  %p
-    = f.button :submit
+.col-lg-1
+.col-lg-10
+  .content
+    =simple_form_for(@post) do |f|
+      - if @post.errors.any?
+        #errors
+          %h2
+            = pluralize(@post.errors.count, "error")
+            prevented this post from saving
+          %ul
+            - @post.errors.full_messages.each do |msg|
+              %li
+                = msg
+      %p
+        = f.input :title_blog
+      %p
+        = f.text_area :content_blog, class:"tinymce", :rows=>40, :cols => 120
+      %p
+        =f.input :image
+      %p
+        = f.button :submit
+      =tinymce
+      
