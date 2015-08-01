@@ -79,7 +79,7 @@ audio{
     &:hover{
       border-bottom: 3px solid #A56C65;
       color: #A56C65 !important;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.5rem; 
     }
   }
   .container-fluid{
@@ -126,19 +126,37 @@ audio{
   }
 }
 
+.my_badge {
+  color: rgb(153, 153, 153);
+  font-size: 22px;
+  font-weight: 300;
+}
+
 .contest-title{
     height: auto;
-    margin-top: -80%;
-    padding-bottom: 0%;
+    margin-top: 0%;
+    padding: 20px 20px 0 !important;
     position: relative;
     text-align: center;
-
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    font-size:25px;
+    color:#4c5650 !important;
+    text-transform: uppercase;
     width: 100%;
+    text-decoration: none;
+    a{
+      color:#4c5650;
+    }
+    a:hover {
+     color:#4c5650; 
+     text-decoration:none; 
+     cursor:pointer;  
+    }
+    /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); */
+    
       .topic {
         text-align: center;
         margin-bottom: 0;
-        color:white;
+        color:#4c5650;
         padding-top:0%;
       }
 }
@@ -154,7 +172,7 @@ audio{
         max-width: 100%;
         height: auto;
         opacity:0.9;
-        margin:0px 3px;
+        margin:0px 40px;
       }
     .btn {
       background: none repeat scroll 0 0 #9FB0B3;
