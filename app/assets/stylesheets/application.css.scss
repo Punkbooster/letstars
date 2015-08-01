@@ -28,7 +28,7 @@ html{
 body{
   margin-top:60px;
   background: #FFFFFF;
-  font-family: sans-serif;
+  font-family: "brandon-grotesque",sans-serif;
   margin-bottom: 500px;
 }
 hr{
@@ -94,9 +94,9 @@ audio{
   background:asset_url('Banner_3.0.gif') no-repeat;
   background-size: cover;
   .logo{
-    width:300px;
-    height:170px;
-    padding-top: 20px;
+    width:490px;
+    height:150px;
+    padding:20px 0px 0px 10px;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
@@ -106,14 +106,21 @@ audio{
     h1{
       margin:0;
       padding:0;
-      font-family: impact;
-      font-size:71px;
+      font-family: "brandon-grotesque",sans-serif;
       line-height: 1.1;
+      color: #fff;
+      font-size: 70px;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      font-weight:700;
     }
     .logo-text{
-      color:white;
-      text-align: left;
-      margin-left: 2.3em;
+    color: #cac8c2;
+    font-family: "brandon-grotesque",sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
     }
 
   }
@@ -162,11 +169,14 @@ audio{
 }
 .topic {
     clear: both;
-    font-family: "Roboto",sans-serif;
-    font-size: 25px;
-    font-weight: 400;
+    font-family: "brandon-grotesque",sans-serif;
+    color: #4c5650;
+    font-size: 3.2rem;
+    font-weight: 700;
     margin: 2.5em;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 8px;
   .btn {
     font-weight: 100;
     font-size: 20px;
