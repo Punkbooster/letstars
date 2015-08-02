@@ -35,16 +35,17 @@
   .col-lg-13
     .posts        
       - @posts.each do |post|
-        .post1
-          %h3.title
-            = link_to post.title_blog, post
-          .pull-left
-            .glyphicon.glyphicon-comment
-            =post.comments.count
-            ='comment'.pluralize(post.comments.count)
-          .post-date
-            Published at:
-            =time_ago_in_words(post.created_at)      
+        .post
+          .post-info 
+            .post-title
+              = link_to post.title_blog, post 
+            .glyphicon-comments
+              .glyphicon.glyphicon-comment
+              =post.comments.count
+              ='comment'.pluralize(post.comments.count)
+            .post-date
+              Published at:
+              =time_ago_in_words(post.created_at)      
     .text-center
       .topic
         %p=link_to 'View all news', posts_path, class:'btn btn-default'
