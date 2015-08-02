@@ -18,7 +18,7 @@
           -@modalName = '#myModal' + contest.id.to_s
           .contest
             .contest-image
-              =image_tag contest.image, width:"100%"
+              =image_tag contest.image, width:"100%", height:"300px"
               .contest-title
                 =link_to contest.title.truncate(29), contest
               .my_badge
@@ -28,26 +28,23 @@
                   =(contest.contest_end.to_date-Time.now.to_date).to_i
                   days left
 
-  .col-lg-1
-  .col-lg-10
-    .text-center
-      .topic
-        Latest news
-    - @posts.each do |post|
-      .well.well-sm
-        .post
+.text-center
+  .topic
+    Latest news
+  .col-lg-0
+  .col-lg-13
+    .posts        
+      - @posts.each do |post|
+        .post1
           %h3.title
             = link_to post.title_blog, post
-          .post-annotation
-            = post.content_blog.truncate(140).html_safe
-          %hr
           .pull-left
             .glyphicon.glyphicon-comment
             =post.comments.count
             ='comment'.pluralize(post.comments.count)
           .post-date
             Published at:
-            =time_ago_in_words(post.created_at)
+            =time_ago_in_words(post.created_at)      
     .text-center
       .topic
         %p=link_to 'View all news', posts_path, class:'btn btn-default'
