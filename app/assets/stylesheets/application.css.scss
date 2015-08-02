@@ -290,12 +290,16 @@ audio{
   background: #9FB1B4;
   padding:0em 5%;
   width: 33.3%;
+  transition: background .4s ease-in-out;
+  &:hover {
+    background: darken(#9FB1B4, 10%);
+  }
     .post-title {
         margin-top: 0%;
-        padding: 25px 0 !important;
+        padding: 35px 0 !important;
         position: relative;
         text-align: left;
-        font-size:25px;
+        font-size:20px;
         color:#fff !important;
         text-transform: uppercase;
         text-decoration: none;
@@ -317,8 +321,8 @@ audio{
   }
   .post-info{
   display: inline;
-  margin-left:-10%;
   .post-date, .glyphicon-comments{
+    color: #596F71;
     text-align: left;
   }
 }
