@@ -249,15 +249,7 @@ audio{
             width: 100%;
               }
 
-    .btn {
-      background: none repeat scroll 0 0 #9FB0B3;
-      border: medium none;
-      border-radius: 2rem;
-      outline: medium none;
-      padding: 1rem 3.5rem;
-      width:35%;
-      margin-left:33.33%;
-    }
+
   }
 }
 .topic {
@@ -426,7 +418,9 @@ audio{
 }
 
 #post_index {
+
   background: white;
+  border:0.5px solid #397CAC;
   border-radius: .5em;
   margin-top: 6em;
   border-radius: 3px;
