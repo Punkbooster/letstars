@@ -182,26 +182,27 @@ audio{
 
 .my_badge {
   color: rgb(153, 153, 153);
-  font-size: 22px;
+  font-size: 32px;
   font-weight: 300;
+  padding-top:0px;
 }
 
 .contest-title{
     height: auto;
-    margin-top: 0%;
-    padding: 20px 20px 0 !important;
+    margin-top: -30%;
+    padding: 0 0 0 20% !important;
     position: relative;
     text-align: center;
     font-size:25px;
-    color:#4c5650 !important;
+    color:#fff !important;
     text-transform: uppercase;
-    width: 100%;
     text-decoration: none;
+    width: 80%;
     a{
-      color:#4c5650;
+      color:#fff;
     }
     a:hover {
-     color:#4c5650; 
+     color:#fff; 
      text-decoration:none; 
      cursor:pointer;  
     }
@@ -223,6 +224,8 @@ audio{
     width: 33.33%;
     margin: 0;
       .contest-image {
+        padding:1px;
+        border:1px solid #545456;
         position: relative;
         max-width: 100%;
         height: auto;
@@ -230,8 +233,8 @@ audio{
         margin:0px 40px;
         opacity: 1;
         background: url(demo.png) no-repeat 0 0 transparent;
-    overflow: hidden;
-    position: relative;
+        overflow: hidden;
+        position: relative;
 
         }
         .contest-image::after {

@@ -18,15 +18,15 @@
           -@modalName = '#myModal' + contest.id.to_s
           .contest
             .contest-image
-              =image_tag contest.image, width:"100%", height:"300px"
+              =image_tag contest.image, width:"100%", height:"350px"
             .contest-title
               =link_to contest.title.truncate(29), contest
-            .my_badge
-              -if (contest.contest_end.to_date-Time.now.to_date).to_i < 0
-                contest closed
-              -else
-                =(contest.contest_end.to_date-Time.now.to_date).to_i
-                days left
+              .my_badge
+                -if (contest.contest_end.to_date-Time.now.to_date).to_i < 0
+                  contest closed
+                -else
+                  =(contest.contest_end.to_date-Time.now.to_date).to_i
+                  days left
 
 .text-center
   .topic
