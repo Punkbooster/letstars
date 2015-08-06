@@ -33,14 +33,16 @@
               %source{:src => music.audio.url, :type => "audio/mpeg"}
           .muslabel_track
             = music.audio_file_name.humanize.to(-5).truncate(50)
-          -if Date.today > @contest.contest_end
+          -if Date.today >= @contest.voting_end
             .muslabel_score
               = music.score
               = 'Vote'.pluralize(music.score)
+          -elsif Date.today >= @contest.contest_end
+            -if user_signed_in?
+              -if current_user.can_vote?(@contest)
+                .muslabel_vote
+                  = link_to "", like_contest_music_path(@contest, music), method: :put,class:'glyphicon glyphicon-thumbs-up'
           -if user_signed_in?
-            -if current_user.can_vote?(@contest)
-              .muslabel_vote
-                = link_to "", like_contest_music_path(@contest, music), method: :put,class:'glyphicon glyphicon-thumbs-up'
             - if current_user.role =='administrator'
               .muslabel_delete
                 =link_to "delete track", contest_music_path(@contest,music), method: :delete

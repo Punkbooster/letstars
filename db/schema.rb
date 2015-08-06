@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507140307) do
+ActiveRecord::Schema.define(version: 20150805112227) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
@@ -28,15 +28,12 @@ ActiveRecord::Schema.define(version: 20150507140307) do
     t.string   "image"
     t.string   "title"
     t.text     "description"
-    t.integer  "track_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.datetime "contest_end"
     t.datetime "voting_end"
     t.string   "code"
   end
-
-  add_index "contests", ["track_id"], name: "index_contests_on_track_id"
 
   create_table "musics", force: :cascade do |t|
     t.string   "audio"
@@ -89,8 +86,12 @@ ActiveRecord::Schema.define(version: 20150507140307) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 

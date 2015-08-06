@@ -17,7 +17,7 @@
         .contest
           .contest-title
             .topic
-              =contest.title.truncate(29)
+              =link_to (contest.title.truncate(6)), contest
             .badge
               -if (contest.contest_end.to_date-Time.now.to_date).to_i < 0
                 contest closed
@@ -27,4 +27,7 @@
           .contest-image
             %hr
             =image_tag contest.image, size:"300"
-          =button_to "Take a part", contest, method: :get , class: 'btn btn-default btn-lg btn-block'
+          .contest-title
+            =link_to "take a part",contest
+
+
