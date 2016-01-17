@@ -33,18 +33,21 @@
               %source{:src => music.audio.url, :type => "audio/mpeg"}
           .muslabel_track
             = music.audio_file_name.humanize.to(-5).truncate(50)
-          -if Date.today >= @contest.voting_end
+          -if Date.today <= @contest.voting_end
             .muslabel_score
               = music.score
               = 'Vote'.pluralize(music.score)
-          -elsif Date.today >= @contest.contest_end
+          -elsif Date.today <= @contest.contest_end
             -if user_signed_in?
               -if current_user.can_vote?(@contest)
                 .muslabel_vote
-                  = link_to "", like_contest_music_path(@contest, music), method: :put,class:'glyphicon glyphicon-thumbs-up'
+                  = link_to "upvote", like_contest_music_path(@contest, music), method: :put,class:'glyphicon glyphicon-thumbs-up'
+              -else
+                = music.score    
           -if user_signed_in?
             - if current_user.role =='administrator'
               .muslabel_delete
+                =render 'musics/form'
                 =link_to "delete track", contest_music_path(@contest,music), method: :delete
     %br/
     %hr
@@ -55,16 +58,10 @@
             =link_to 'create',new_profile_path
             your profile first
           -else
-            -if @contest.code != ''
-              Insert promo-code here:
-              %input#promo{:type => "text"}
-            -else
-              -if Time.now>@contest.contest_end
-                Contest closed
-              -elsif @musics.where(user_id: current_user.id).count!=0
-                You take a part already
-              -else
-                =render 'musics/form'
+            -if Time.now>@contest.contest_end
+              Contest closed
+            -else @musics.where(user_id: current_user.id).count!=0
+              You have already voted
         -else
           =link_to 'register', new_user_registration_path
           first, for voting and applying tracks
