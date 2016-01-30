@@ -222,7 +222,7 @@ audio{
   .contest {
     float: center;
     width: 33.33%;
-    margin: 0;
+    margin-bottom: 2.5em;
       .contest-image {
         padding:1px;
         border:1px solid #545456;
@@ -282,9 +282,9 @@ audio{
   position: absolute;
   bottom: 0;
   color:#ffffff;
-  height:500px;
+  height:430px;
   width:100%;
-  background-color: #4E7A79;
+  background-color: #788587;
   .site-info{
     float: none;
     margin:auto;
@@ -294,7 +294,7 @@ audio{
       display: inline-block;
       width:100%;
       a{
-        color: #595A5D;
+        color: #DBDBDB;
       }
       .col{
         float:left;

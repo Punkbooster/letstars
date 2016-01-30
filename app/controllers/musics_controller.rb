@@ -43,9 +43,9 @@ class MusicsController < ApplicationController
    file_path = @music.audio_file_name
    if !file_path.nil?
     send_file "#{Rails.root}/public/system/audios/#{@music.id}/original/#{file_path}", :x_sendfile => true
-  else
-   redirect_to musics_url
-  end
+   else
+     redirect_to musics_url
+   end
   end  
 
   def upvote

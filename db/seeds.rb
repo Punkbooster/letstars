@@ -9,7 +9,9 @@
 
 User.create!([
 
-	{ email: 'test@gmail.com', password: '1234test', password_confirmation: '1234test', role: 'administrator' }
+	{ email: 'admin@gmail.com', password: '1234test', password_confirmation: '1234test', role: 'administrator' },
+
+	{ email: 'client@gmail.com', password: '1234test', password_confirmation: '1234test', role: '' }
 
 	])
 

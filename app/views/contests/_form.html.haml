@@ -10,10 +10,3 @@
       %p Voting ends:
       %p=f.date_select :voting_end
       =f.button :submit
-
-    %hr
-    When date.today == @contest.contest_end , user wont be able to apply their tracks
-    %br/
-    When date.today ==@contest.contest_end, user will have the possibility to voting for tracks.
-    %br/
-    When date.today ==@contest.voting.end, user wont be able to vote for tracks
