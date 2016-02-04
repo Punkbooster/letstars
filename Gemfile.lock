@@ -206,7 +206,6 @@ DEPENDENCIES
   jquery-rails
   paperclip
   pg
-  rack (= 1.6.1)
   rails (= 4.2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
